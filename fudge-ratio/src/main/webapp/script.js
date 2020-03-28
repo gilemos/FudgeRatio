@@ -1,1 +1,0 @@
-/** Add a script here for the index page */
