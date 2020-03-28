@@ -17,7 +17,7 @@ function interval() {
     }
 }
 
-// When the start button is clicked, the timer variable is initialized every second.
+// When the start button is clicked, the timer variable is initialized to 1 every second.
 function startTimer() {
     if(!timer) {
         timer = setInterval(interval, 1000);
@@ -25,7 +25,8 @@ function startTimer() {
 }
 
 function stopTimer() {
-    
+    clearInterval(timer);
+    timer = 0;
 }
 
 // Concatenates a zero to the beginning of a number less than 10.
