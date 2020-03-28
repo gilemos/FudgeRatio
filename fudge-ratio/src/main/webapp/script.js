@@ -2,6 +2,7 @@
 
 var seconds = 0;
 var minutes = 0;
+var totalMinutes = 0;
 var hours = 0;
 var timer;
 
@@ -11,6 +12,8 @@ function interval() {
     seconds++;
     if(seconds == 60) {
         minutes++;
+        totalMinutes++;
+        console.log(totalMinutes);
         seconds = 0;
     }
     if(minutes == 60) {
