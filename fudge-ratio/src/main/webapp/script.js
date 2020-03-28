@@ -1,3 +1,5 @@
+/* This is a javascript page for the index.html */
+
 var seconds = 0;
 var minutes = 0;
 var hours = 0;
