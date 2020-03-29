@@ -12,3 +12,10 @@
 #timer {
   font-size: 8em;
 }
+
+.dropdown-contents {
+  width: 350px; 
+}
+.dropdown-contents:hover {
+    box-shadow: 1px 1px 11px grey;
+} 
