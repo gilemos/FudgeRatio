@@ -3,9 +3,10 @@
 :root {
   --background-color: rgb(245, 245, 245);
   --font-color: rgb(30, 30, 30);
-  
+
   --green-color: rgba(63, 138, 63, 0.835);
   --red-color: rgba(196, 34, 34, 0.835);
+  --blue-color: rgba(45, 63, 145, 0.835);
 }
 
 body {
@@ -39,15 +40,22 @@ button {
   font-size: 1.2rem;
   color: white;
   font-weight: 600;
+  width: 12rem;
+}
+
+.timer-buttons {
+  display: grid;
+  grid-gap: 3rem;
+  grid-auto-flow: column;
+  margin: 0 3rem;
 }
 
 #startStopButton {
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  
-  
   background-color: var(--green-color);
+}
+
+#clear {
+  background-color: var(--blue-color);
 }
 
 .stop {
