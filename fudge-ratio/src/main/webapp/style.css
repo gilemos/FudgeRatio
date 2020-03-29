@@ -19,6 +19,7 @@ body {
   background: var(--background-color);
   color: var(--font-color);
   font-family: "Inter", sans-serif;
+  font-size: min(3.5vw, 1.7rem);
 }
 
 .header {
@@ -37,17 +38,15 @@ button {
   border-radius: 0.5rem;
   border: 0;
 
-  font-size: 1.2rem;
   color: white;
   font-weight: 600;
-  width: 12rem;
+  font-size: min(5vw, 2.5rem);
 }
 
 .timer-buttons {
   display: grid;
   grid-gap: 3rem;
   grid-auto-flow: column;
-  margin: 0 3rem;
 }
 
 #startStopButton {
@@ -67,7 +66,7 @@ button {
 }
 
 #timer {
-  font-size: 8em;
+  font-size: 6em;
   font-weight: 300;
   margin: 1rem;
 }
