@@ -36,8 +36,8 @@ const addOneSecond = () => {
 const startTimer = () => {
   if (timer) return;
   timer = setInterval(() => {
-    text.textContent = padd(hours) + ":" + padd(minutes) + ":" + padd(seconds);
     addOneSecond();
+    text.textContent = padd(hours) + ":" + padd(minutes) + ":" + padd(seconds);
   }, 1000);
 };
 
@@ -54,5 +54,7 @@ button.addEventListener("click", event => {
     stopTimer();
   }
 
+  button.classList.toggle("stop")
+  text.classList.toggle("stopped")
   button.textContent = button.textContent === "Start" ? "Stop" : "Start";
 });
