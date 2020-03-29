@@ -6,6 +6,15 @@ let totalMinutes = 0;
 let hours = 0;
 let timer;
 
+// Checks when the start and stop buttons are clicked once the HTML page is loaded.
+window.addEventListener("load", activateListeners);
+
+// Waits for the user to click start or stop to run their respective functions.
+function activateListeners() {
+    document.getElementById("start-button").addEventListener("click", startTimer);
+    document.getElementById("stop-button").addEventListener("click", stopTimer);
+}
+
 // Updates the timer text in index.html to increment every second, minute, and hour.
 function interval() {
     document.getElementById("timer").innerHTML = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds);
@@ -29,6 +38,7 @@ function startTimer() {
     }
 }
 
+// Stops the increment of hours, minutes, and seconds on the timer.
 function stopTimer() {
     clearInterval(timer);
     timer = 0;
