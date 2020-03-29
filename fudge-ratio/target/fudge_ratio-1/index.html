@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Fudge Ratio</title>
+  </head>
+  <body>
+    <h1>Fudge Ratio Calculator</h1>
+    <p>Select a task and click the start button when you're ready!</p>
+    <div class="dropdown">
+      <label>Choose a task:</label>
+      <select id="dropdown-contents">
+        <option value="" selected="selected">Select one</option>
+        <optgroup label="Schoolwork">
+          <option value="math">Math</option>
+          <option value="computer science">Computer Science</option>
+          <option value="English">English</option>
+          <option value="science">Science</option>
+          <option value="history">History</option>
+          <option value="music">Music</option>
+          <option value="art">Art</option>
+        </optgroup>
+        <optgroup label="Job-related tasks">
+          <option value="paperwork">Paperwork</option>
+          <option value="emails">Emails</option>
+        </optgroup>
+        <optgroup label="Housework">
+          <option value="cleaning">Cleaning</option>
+          <option value="cooking">Cooking</option>
+          <option value="shopping">Shopping</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="timer-contents">
+      <p id="timer">00:00:00</p>
+    </div>
+    <div class="timer-buttons">
+      <button id="startStopButton" />
+      <button id="clear">Clear</button>
+    </div>
+    <div id="finalMessage">
+        <p> </p>
+    </div>
+  </body>
+  <script defer src="script.js"></script>
+</html>

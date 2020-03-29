@@ -10,25 +10,25 @@
     <p>Select a task and click the start button when you're ready!</p>
     <div class="dropdown">
       <label>Choose a task:</label>
-      <select class="dropdown-contents">
+      <select id="dropdown-contents">
         <option value="" selected="selected">Select one</option>
         <optgroup label="Schoolwork">
           <option value="math">Math</option>
-          <option value="cs">Computer Science</option>
-          <option value="eng">English</option>
-          <option value="sci">Science</option>
-          <option value="hist">History</option>
-          <option value="mus">Music</option>
+          <option value="computer science">Computer Science</option>
+          <option value="English">English</option>
+          <option value="science">Science</option>
+          <option value="history">History</option>
+          <option value="music">Music</option>
           <option value="art">Art</option>
         </optgroup>
         <optgroup label="Job-related tasks">
-          <option value="ppr-work">Paperwork</option>
-          <option value="email">Emails</option>
+          <option value="paperwork">Paperwork</option>
+          <option value="emails">Emails</option>
         </optgroup>
         <optgroup label="Housework">
-          <option value="clean">Cleaning</option>
-          <option value="cook">Cooking</option>
-          <option value="shop">Shopping</option>
+          <option value="cleaning">Cleaning</option>
+          <option value="cooking">Cooking</option>
+          <option value="shopping">Shopping</option>
         </optgroup>
       </select>
     </div>
@@ -38,6 +38,9 @@
     <div class="timer-buttons">
       <button id="startStopButton" />
       <button id="clear">Clear</button>
+    </div>
+    <div id="finalMessage">
+        <p> </p>
     </div>
   </body>
   <script defer src="script.js"></script>
