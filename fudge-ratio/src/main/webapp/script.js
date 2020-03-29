@@ -1,10 +1,10 @@
 /* This is a javascript page for the index.html */
 
-var seconds = 0;
-var minutes = 0;
-var totalMinutes = 0;
-var hours = 0;
-var timer;
+let seconds = 0;
+let minutes = 0;
+let totalMinutes = 0;
+let hours = 0;
+let timer;
 
 // Updates the timer text in index.html to increment every second, minute, and hour.
 function interval() {
