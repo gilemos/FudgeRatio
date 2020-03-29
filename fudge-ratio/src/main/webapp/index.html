@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
     <title>Fudge Ratio</title>
   </head>
-  <body class="container">
-    <h1> Fudge Ratio Calculator </h1>
+  <body>
+    <h1>Fudge Ratio Calculator</h1>
     <p>Select a task and click the start button when you're ready!</p>
-    <br/><br/>
     <div class="dropdown">
-        <label>Choose a task:</label>
-            <select class="dropdown-contents">
-                <option value="" selected="selected">Select one</option>
-                <optgroup label="Schoolwork" >
-                <option value="math">Math</option>
-                <option value="cs">Computer Science</option>
-                <option value="eng">English</option>
-                <option value="sci">Science</option>
-                <option value="hist">History</option>
-                <option value="mus">Music</option>
-                <option value="art">Art</option>
-                </optgroup>
-                <optgroup label="Job-related tasks">
-                <option value="ppr-work">Paperwork</option>
-                <option value="email">Emails</option>
-                </optgroup>
-                <optgroup label="Housework">
-                <option value="clean">Cleaning</option>
-                <option value="cook">Cooking</option>
-                <option value="shop">Shopping</option>       
-                </optgroup>
-            </select>
+      <label>Choose a task:</label>
+      <select class="dropdown-contents">
+        <option value="" selected="selected">Select one</option>
+        <optgroup label="Schoolwork">
+          <option value="math">Math</option>
+          <option value="cs">Computer Science</option>
+          <option value="eng">English</option>
+          <option value="sci">Science</option>
+          <option value="hist">History</option>
+          <option value="mus">Music</option>
+          <option value="art">Art</option>
+        </optgroup>
+        <optgroup label="Job-related tasks">
+          <option value="ppr-work">Paperwork</option>
+          <option value="email">Emails</option>
+        </optgroup>
+        <optgroup label="Housework">
+          <option value="clean">Cleaning</option>
+          <option value="cook">Cooking</option>
+          <option value="shop">Shopping</option>
+        </optgroup>
+      </select>
     </div>
     <div class="timer-contents">
-      <div id="timer">00:00:00</div>
-      <div class="timer-buttons">
-        <button id="start-button">Start</button>
-        <button id="stop-button">Stop</button>
-      </div>
+      <p id="timer">00:00:00</p>
     </div>
- 
+    <div class="timer-buttons">
+      <button id="startStopButton" />
+      <button id="clear">Clear</button>
+    </div>
   </body>
+  <script defer src="script.js"></script>
 </html>
