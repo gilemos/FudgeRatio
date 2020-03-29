@@ -33,7 +33,7 @@ const startTimer = () => {
   timer = setInterval(() => {
     addOneSecond();
     updateText();
-  }, 100);
+  }, 1000);
 };
 
 // Stops the increment of hours, minutes, and seconds on the timer.
