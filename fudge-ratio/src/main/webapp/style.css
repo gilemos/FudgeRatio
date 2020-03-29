@@ -1,1 +1,14 @@
 /* This is a css page for the index.html */
+
+.container {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#timer {
+  font-size: 8em;
+}
