@@ -83,13 +83,18 @@ button {
   margin-bottom: 1.5rem;
 }
 
-.dropdown-contents {
+#dropdown-contents {
   width: 35vw;
   font-size: calc(0.8 * var(--base));
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.1rem;
 }
 
-.dropdown-contents:hover {
+#dropdown-contents:hover {
   box-shadow: 1px 1px 11px grey;
+}
+#finalMessage {
+  font-size: calc(1.1 * var(--base));
+  text-align: center;
+  margin: 10rem;
 }

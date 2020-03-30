@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,700&display=swap");
+
+:root {
+  --background-color: rgb(245, 245, 245);
+  --font-color: rgb(30, 30, 30);
+
+  --green-color: rgba(63, 138, 63, 0.835);
+  --red-color: rgba(196, 34, 34, 0.835);
+  --blue-color: rgba(45, 63, 145, 0.835);
+  --base: min(3.5vw, 1.7rem);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  margin: 2rem;
+
+  background: var(--background-color);
+  color: var(--font-color);
+  font-family: "Inter", sans-serif;
+  font-size: var(--base);
+}
+p, label {
+  font-size: calc(1.1 * var(--base));
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.header {
+  font-weight: 700;
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+.timer-contents {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 0.8rem 3rem;
+  border-radius: 0.5rem;
+  border: 0;
+
+  color: white;
+  font-weight: 600;
+  font-size: min(5vw, 2rem);
+}
+
+.timer-buttons {
+  display: grid;
+  grid-gap: 3rem;
+  grid-auto-flow: column;
+}
+
+#startStopButton {
+  background-color: var(--green-color);
+}
+
+#clear {
+  background-color: var(--blue-color);
+}
+
+.stop {
+  background-color: var(--red-color) !important;
+}
+
+.stopped {
+  font-weight: 400 !important;
+}
+
+#timer {
+  font-size: calc(4 * var(--base));
+  font-weight: 300;
+  margin: 1rem;
+}
+
+.dropdown {
+  margin-bottom: 1.5rem;
+}
+
+#dropdown-contents {
+  width: 35vw;
+  font-size: calc(0.8 * var(--base));
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.1rem;
+}
+
+#dropdown-contents:hover {
+  box-shadow: 1px 1px 11px grey;
+}
+#finalMessage {
+  font-size: calc(1.1 * var(--base));
+  text-align: center;
+  margin: 10rem;
+}
