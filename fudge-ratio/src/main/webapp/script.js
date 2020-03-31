@@ -55,7 +55,7 @@ button.addEventListener("click", () => {
     }
     task = dropdown.value;
     const minutesSince = startTimer();
-    saveStartingTime();
+    saveSessionState();
   } else {
     stopTimer();
   }
@@ -68,7 +68,7 @@ buttonClear.addEventListener("click", () => {
   if (button.textContent === "Stop") button.click();
   (seconds = 0), (minutes = 0), (hours = 0);
   updateText();
-  cleanStartTime();
+  cleanSessionState();
 });
 
 const formatTaskString = () => {
@@ -87,26 +87,29 @@ const displayMessage = () => {
     "Next time please allocate" + duration + " for " + formatTaskString();
 };
 
+// Save state in local Store ====
 const timeKey = "startingTime";
 const indexKey = "selectedIndex";
 
-const saveStartingTime = () => {
-  if (recoverStartTime().every(x => x != null)) return;
+const saveSessionState = () => {
+  if (informationThere(recoverSessionState())) return;
   localStorage.setItem(timeKey, Date.now());
   localStorage.setItem(indexKey, dropdown.selectedIndex);
 };
 
-const recoverStartTime = () => {
+const recoverSessionState = () => {
   return [localStorage.getItem(timeKey), localStorage.getItem(indexKey)];
 };
 
-const cleanStartTime = () => {
+const cleanSessionState = () => {
   localStorage.removeItem(timeKey);
   localStorage.removeItem(indexKey);
 };
 
-const [timeStarted, selectedIndex] = recoverStartTime();
-if (timeStarted) {
+const informationThere = array => array.every(x => x != null);
+
+if (informationThere(recoverSessionState())) {
+  const [timeStarted, selectedIndex] = recoverSessionState();
   const start = parseInt(timeStarted);
   dropdown.selectedIndex = selectedIndex;
 
