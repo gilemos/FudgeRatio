@@ -53,6 +53,7 @@ button.addEventListener("click", () => {
     }
     task = document.getElementById("dropdown-contents").value;
     const minutesSince = startTimer();
+    saveStartingTime();
   } else {
     stopTimer();
   }
@@ -83,3 +84,27 @@ const displayMessage = () => {
   document.getElementById("finalMessage").innerHTML =
     "Next time please allocate" + duration + " for " + formatTaskString();
 };
+
+const saveStartingTime = () => {
+  localStorage.setItem("startingTime", Date.now());
+};
+
+const recoverStartTime = () => {
+  return localStorage.getItem("startingTime");
+};
+
+const cleanStartTime = () => {
+  localStorage.removeItem("startingTime");
+};
+
+const timeStarted = recoverStartTime();
+if (timeStarted) {
+  const start = parseInt(timeStarted);
+  const now = Date.now();
+  const elapsed = Math.floor((now - start) / 1000);
+
+  seconds = elapsed % 60;
+  minutes = Math.floor(elapsed / 60) % 60;
+  hours = Math.floor(elapsed / 3600) % 24;
+  updateText();
+}
