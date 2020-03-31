@@ -1,6 +1,8 @@
 const button = document.getElementById("startStopButton");
 const buttonClear = document.getElementById("clear");
 const text = document.getElementById("timer");
+const dropdown = document.getElementById("dropdown-contents");
+
 button.textContent = "Start";
 
 let seconds = 0,
@@ -47,11 +49,11 @@ const stopTimer = () => {
 
 button.addEventListener("click", () => {
   if (button.textContent === "Start") {
-    if (document.getElementById("dropdown-contents").value == "") {
+    if (dropdown.value == "") {
       alert("You must pick a task before starting");
       return;
     }
-    task = document.getElementById("dropdown-contents").value;
+    task = dropdown.value;
     const minutesSince = startTimer();
     saveStartingTime();
   } else {
@@ -69,7 +71,6 @@ buttonClear.addEventListener("click", () => {
 });
 
 const formatTaskString = () => {
-  let dropdown = document.getElementById("dropdown-contents");
   let op = dropdown.options[dropdown.selectedIndex];
   let category = op.parentNode.label;
   let formattedString = "";
