@@ -68,6 +68,7 @@ buttonClear.addEventListener("click", () => {
   if (button.textContent === "Stop") button.click();
   (seconds = 0), (minutes = 0), (hours = 0);
   updateText();
+  cleanStartTime();
 });
 
 const formatTaskString = () => {
@@ -86,21 +87,29 @@ const displayMessage = () => {
     "Next time please allocate" + duration + " for " + formatTaskString();
 };
 
+const timeKey = "startingTime";
+const indexKey = "selectedIndex";
+
 const saveStartingTime = () => {
-  localStorage.setItem("startingTime", Date.now());
+  if (recoverStartTime().every(x => x != null)) return;
+  localStorage.setItem(timeKey, Date.now());
+  localStorage.setItem(indexKey, dropdown.selectedIndex);
 };
 
 const recoverStartTime = () => {
-  return localStorage.getItem("startingTime");
+  return [localStorage.getItem(timeKey), localStorage.getItem(indexKey)];
 };
 
 const cleanStartTime = () => {
-  localStorage.removeItem("startingTime");
+  localStorage.removeItem(timeKey);
+  localStorage.removeItem(indexKey);
 };
 
-const timeStarted = recoverStartTime();
+const [timeStarted, selectedIndex] = recoverStartTime();
 if (timeStarted) {
   const start = parseInt(timeStarted);
+  dropdown.selectedIndex = selectedIndex;
+
   const now = Date.now();
   const elapsed = Math.floor((now - start) / 1000);
 
@@ -108,4 +117,5 @@ if (timeStarted) {
   minutes = Math.floor(elapsed / 60) % 60;
   hours = Math.floor(elapsed / 3600) % 24;
   updateText();
+  button.click();
 }
