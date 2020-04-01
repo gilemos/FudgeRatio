@@ -89,7 +89,7 @@ const displayMessage = () => {
 function loadActivities() {
     fetch('/data').then(response => response.json()).then((activities) => {
         activities.forEach((activity) => {
-            var activityType = activity.type;
+            let activityType = activity.type;
             const activityListElement = document.getElementById(activityType);
             activityListElement.appendChild(createElement(activity));
         })
