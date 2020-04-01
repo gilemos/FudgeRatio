@@ -100,5 +100,6 @@ function createElement(act) {
     const optionElement = document.createElement("OPTION");
     optionElement.text = act.name;
     optionElement.label = act.name;
+    optionElement.value = act.name;
     return optionElement;
 }

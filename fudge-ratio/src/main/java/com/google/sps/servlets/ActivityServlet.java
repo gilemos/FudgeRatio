@@ -35,8 +35,8 @@ public class ActivityServlet extends HttpServlet {
 
         //Get the name of the activity and the new time taken to complete it
         String name = request.getParameter("name");
-        String newTimeString = (String)request.getParameter("newTime");
-        Double newTime = Double.parseDouble(newTimeString);
+        long actualTimeNew = Long.parseLong(request.getParameter("newTime"));
+        long expectedTimeNew = Long.parseLong(request.getParameter("expectedTime"));
 
         //Find this activity in datastore
         Query query = new Query("Activity").setFilter(new FilterPredicate("name", FilterOperator.EQUAL, name));
@@ -44,16 +44,21 @@ public class ActivityServlet extends HttpServlet {
         Entity result = pq.asSingleEntity();
 
         //Update number of times that activity was done
-        int numUsed = (int) result.getProperty("numUsed");
+        long numUsed = (long) result.getProperty("numUsed");
         numUsed = numUsed + 1;
 
-        //Update expected time for activity
-        String expectedTimeString = (String) result.getProperty("expectedTime");
-        Double expectedTime = Double.parseDouble(expectedTimeString);
-        expectedTime = (expectedTime + newTime) / numUsed;
+        //Update average time for activity
+        double avgTime = (double) result.getProperty("avgTime");
+        avgTime = ((avgTime * (numUsed - 1)) + actualTimeNew) / numUsed;
+
+        //Update average fudge ratio
+        double avgFudge = (double) result.getProperty("avgFudge");
+        double newFudge = expectedTimeNew / actualTimeNew;
+        avgFudge = ((avgFudge * (numUsed - 1)) + newFudge) / numUsed;
 
         //Setting properties to entity
-        result.setProperty("expectedTime", expectedTime);
+        result.setProperty("avgTime", avgTime);
+        result.setProperty("avgFudge", avgFudge);
         result.setProperty("numUsed", numUsed);
 
         //Posting new entity 
