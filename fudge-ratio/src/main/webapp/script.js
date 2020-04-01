@@ -122,3 +122,8 @@ if (informationThere(recoverSessionState())) {
   updateText();
   button.click();
 }
+
+dropdown.addEventListener("change", () => {
+  const current = recoverSessionState()[1];
+  if (current) dropdown.selectedIndex = current
+});
