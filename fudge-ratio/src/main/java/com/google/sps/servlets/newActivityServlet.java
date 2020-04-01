@@ -20,16 +20,21 @@ public class newActivityServlet extends HttpServlet {
 
         //Get the name of the activity and the new time taken to complete it
         String name = request.getParameter("name");
-        String newTime = (String)request.getParameter("newTime");
+        long newTimeLong = Long.parseLong(request.getParameter("newTime"));
+        double expectedTime = Double.parseDouble(request.getParameter("expectedTime"));
         String type = (String) request.getParameter("type");
+
+        double fudgeRatio = (double) expectedTime / newTimeLong;
+        double newTime = (double) expectedTime / 1.0;
 
         //Find this activity in datastore
         Entity result = new Entity("Activity");
 
         //Setting properties to entity
         result.setProperty("name", name);
-        result.setProperty("expectedTime", newTime);
+        result.setProperty("avgTime", newTime);
         result.setProperty("type", type);
+        result.setProperty("avgFudge", fudgeRatio);
         result.setProperty("numUsed", 1);
 
         //Posting new entity 

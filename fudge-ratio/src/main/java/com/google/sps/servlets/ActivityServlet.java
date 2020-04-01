@@ -73,10 +73,11 @@ public class ActivityServlet extends HttpServlet {
             long id = entity.getKey().getId();
             String name = (String) entity.getProperty("name");
             String type = (String) entity.getProperty("type");
-            String expectedTime = (String) entity.getProperty("expectedTime");
+            double avgDuration = (double) entity.getProperty("avgTime");
+            double avgFudge = (double) entity.getProperty("avgFudge");
             long numUsed = (long) entity.getProperty("numUsed");
 
-            Activity activity = new Activity(id, name, type, expectedTime, numUsed);
+            Activity activity = new Activity(id, name, type, numUsed, avgDuration, avgFudge);
             activities.add(activity);
         }
 
