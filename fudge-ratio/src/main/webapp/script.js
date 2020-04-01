@@ -85,3 +85,20 @@ const formatTaskString = () => {
 const displayMessage = () => {
     document.getElementById("finalMessage").innerHTML = "Next time please allocate" + duration + " for "  + formatTaskString();
 };
+
+function loadActivities() {
+    fetch('/data').then(response => response.json()).then((activities) => {
+        activities.forEach((activity) => {
+            var activityType = activity.type;
+            const activityListElement = document.getElementById(activityType);
+            activityListElement.appendChild(createElement(activity));
+        })
+    });
+}
+
+function createElement(act) {
+    const optionElement = document.createElement("OPTION");
+    optionElement.text = act.name;
+    optionElement.label = act.name;
+    return optionElement;
+}
