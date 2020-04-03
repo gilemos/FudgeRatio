@@ -1,6 +1,8 @@
 const button = document.getElementById("startStopButton");
 const buttonClear = document.getElementById("clear");
 const text = document.getElementById("timer");
+const dropdown = document.getElementById("dropdown-contents");
+
 button.textContent = "Start";
 
 let seconds = 0,
@@ -8,7 +10,7 @@ let seconds = 0,
   hours = 0;
 let timer = null;
 let task = "";
-let duration = " PLACE HOLDER" //leaving this here for now because it might interfere with how Jerry wants to do things
+let duration = " PLACE HOLDER"; //leaving this here for now because it might interfere with how Jerry wants to do things
 
 // Concatenates a zero to the beginning of a number less than 10.
 const padd = num => (num < 10 ? "0" : "") + num;
@@ -42,19 +44,19 @@ const startTimer = () => {
 const stopTimer = () => {
   clearInterval(timer);
   timer = null;
-   displayMessage();
+  displayMessage();
 };
 
 button.addEventListener("click", () => {
   if (button.textContent === "Start") {
-    if (document.getElementById('dropdown-contents').value == "") {
-        alert("You must pick a task before starting");
-        return;
-    } 
-    task = document.getElementById('dropdown-contents').value;
+    if (dropdown.value == "") {
+      alert("You must pick a task before starting");
+      return;
+    }
+    task = dropdown.value;
     const minutesSince = startTimer();
-  } 
-  else {
+    saveSessionState();
+  } else {
     stopTimer();
   }
   button.classList.toggle("stop");
@@ -66,24 +68,37 @@ buttonClear.addEventListener("click", () => {
   if (button.textContent === "Stop") button.click();
   (seconds = 0), (minutes = 0), (hours = 0);
   updateText();
+  cleanSessionState();
 });
 
 const formatTaskString = () => {
-    let dropdown = document.getElementById("dropdown-contents");
-    let op = dropdown.options[dropdown.selectedIndex];
-	let category = op.parentNode.label;
-    let formattedString = "";
-    if (category == "Schoolwork"){
-        formattedString = task + " homework!";
-    }
-    else if (category == "Job-related tasks"){
-        formattedString = "doing " + task + "!" ;
-    }
-    else formattedString = task + "!"; 
-    return formattedString; 
-}
+  let op = dropdown.options[dropdown.selectedIndex];
+  let category = op.parentNode.label;
+  let formattedString = "";
+  if (category == "Schoolwork") {
+    formattedString = task + " homework!";
+  } else if (category == "Job-related tasks") {
+    formattedString = "doing " + task + "!";
+  } else formattedString = task + "!";
+  return formattedString;
+};
 const displayMessage = () => {
-    document.getElementById("finalMessage").innerHTML = "Next time please allocate" + duration + " for "  + formatTaskString();
+  document.getElementById("finalMessage").innerHTML =
+    "Next time please allocate" + duration + " for " + formatTaskString();
+};
+
+// Save state in local Store ====
+const timeKey = "startingTime";
+const indexKey = "selectedIndex";
+
+const saveSessionState = () => {
+  if (informationThere(recoverSessionState())) return;
+  localStorage.setItem(timeKey, Date.now());
+  localStorage.setItem(indexKey, dropdown.selectedIndex);
+};
+
+const recoverSessionState = () => {
+  return [localStorage.getItem(timeKey), localStorage.getItem(indexKey)];
 };
 
 function loadActivities() {
@@ -103,3 +118,30 @@ function createElement(act) {
     optionElement.value = act.name;
     return optionElement;
 }
+
+const cleanSessionState = () => {
+  localStorage.removeItem(timeKey);
+  localStorage.removeItem(indexKey);
+};
+
+const informationThere = array => array.every(x => x != null);
+
+if (informationThere(recoverSessionState())) {
+  const [timeStarted, selectedIndex] = recoverSessionState();
+  const start = parseInt(timeStarted);
+  dropdown.selectedIndex = selectedIndex;
+
+  const now = Date.now();
+  const elapsed = Math.floor((now - start) / 1000);
+
+  seconds = elapsed % 60;
+  minutes = Math.floor(elapsed / 60) % 60;
+  hours = Math.floor(elapsed / 3600) % 24;
+  updateText();
+  button.click();
+}
+
+dropdown.addEventListener("change", () => {
+  const current = recoverSessionState()[1];
+  if (current) dropdown.selectedIndex = current
+});
