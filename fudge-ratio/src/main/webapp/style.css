@@ -1,100 +1,87 @@
-@import url("https://fonts.googleapis.com/css?family=Inter:300,400,700&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poiret+One&display=swap');
 :root {
-  --background-color: rgb(245, 245, 245);
+  --background-color: rgb(235, 222, 198);
   --font-color: rgb(30, 30, 30);
 
-  --green-color: rgba(63, 138, 63, 0.835);
-  --red-color: rgba(196, 34, 34, 0.835);
-  --blue-color: rgba(45, 63, 145, 0.835);
+  --accent-color:rgba(45, 93, 122, 0.712);
   --base: min(3.5vw, 1.7rem);
 }
+body {margin:0;background: var(--background-color);}
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  height: 100vh;
-  margin: 2rem;
-
-  background: var(--background-color);
-  color: var(--font-color);
-  font-family: "Inter", sans-serif;
-  font-size: var(--base);
+.banner {
+  overflow: hidden;
+  /* 161, 111, 32, 0.712*/
+  background-color: rgba(45, 93, 122, 0.712);
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poiret One', cursive;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 15vh;
 }
-p, label {
-  font-size: calc(1.1 * var(--base));
+
+#logo{
+  float: left;
+  font-size: 6.5vh;
+  display: block;
+  color: #f2f2f2;
   text-align: center;
-  margin: 0.5rem;
+  padding: 5px 10px;
+  text-decoration: none;
 }
 
-.header {
-  font-weight: 700;
-  font-size: 2.5em;
-  margin-bottom: 0;
+.main {
+  height: 120vh; /* Used in this example to enable scrolling */
 }
-
-.timer-contents {
+.textBox {
+  border: .5vh solid rgba(161, 118, 80, 1);
+  margin-top: 12vh;
+  margin-left: 9vw;
+  margin-right: 9vw;
+  padding: 5vh 3vw 30vh 3vw;
+  border-radius:15px 50px; 
+  background-color: rgba( 161, 111, 32, 0.7);
+  box-shadow: 10px 10px 5px grey;
+  text-align: center; 
+  font-size: 4vh;
+  width: 90vw;
+  height: 25vh; 
+}
+.nav{
   display: flex;
-  flex-direction: column;
+  overflow: scroll;
+  width: 72vw;
+  margin-top: 30vh;
+  margin-left: 9vw;
+  margin-right: 9vw;
 }
-
-button {
-  padding: 0.8rem 3rem;
-  border-radius: 0.5rem;
-  border: 0;
-
-  color: white;
-  font-weight: 600;
-  font-size: min(5vw, 2rem);
+.timerIcon {
+  border-radius: 50%;
+  margin: 5vh;
+  height: 25vw;
+  width: 25vw;
+  background-color: cadetblue;
 }
-
-.timer-buttons {
-  display: grid;
-  grid-gap: 3rem;
-  grid-auto-flow: column;
+#text {
+  margin: 12.5vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  font-size: 5vh;
 }
+.steveIcon {
+  border-radius: 50%;
+  margin: 5vh;
+  height: 25vw;
+  width: 25vw;
+  background-color: cadetblue;
 
-#startStopButton {
-  background-color: var(--green-color);
 }
+.ourIcon {
+  border-radius: 50%;
+  margin: 5vh;
+  height: 25vw;
+  width: 25vw;
+  background-color: cadetblue;
 
-#clear {
-  background-color: var(--blue-color);
-}
-
-.stop {
-  background-color: var(--red-color) !important;
-}
-
-.stopped {
-  font-weight: 400 !important;
-}
-
-#timer {
-  font-size: calc(4 * var(--base));
-  font-weight: 300;
-  margin: 1rem;
-}
-
-.dropdown {
-  margin-bottom: 1.5rem;
-}
-
-#dropdown-contents {
-  width: 35vw;
-  font-size: calc(0.8 * var(--base));
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 0.1rem;
-}
-
-#dropdown-contents:hover {
-  box-shadow: 1px 1px 11px grey;
-}
-#finalMessage {
-  font-size: calc(1.1 * var(--base));
-  text-align: center;
-  margin: 10rem;
 }
