@@ -101,6 +101,24 @@ const recoverSessionState = () => {
   return [localStorage.getItem(timeKey), localStorage.getItem(indexKey)];
 };
 
+function loadActivities() {
+    fetch('/data').then(response => response.json()).then((activities) => {
+        activities.forEach((activity) => {
+            let activityType = activity.type;
+            const activityListElement = document.getElementById(activityType);
+            activityListElement.appendChild(createElement(activity));
+        })
+    });
+}
+
+function createElement(act) {
+    const optionElement = document.createElement("OPTION");
+    optionElement.text = act.name;
+    optionElement.label = act.name;
+    optionElement.value = act.name;
+    return optionElement;
+}
+
 const cleanSessionState = () => {
   localStorage.removeItem(timeKey);
   localStorage.removeItem(indexKey);
