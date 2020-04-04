@@ -41,6 +41,11 @@ p, label {
   flex-direction: column;
 }
 
+.time-duration-contents {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   padding: 0.8rem 3rem;
   border-radius: 0.5rem;
@@ -54,6 +59,12 @@ button {
 .timer-buttons {
   display: grid;
   grid-gap: 3rem;
+  grid-auto-flow: column;
+}
+
+.duration-buttons {
+  display: grid;
+  grid-gap: 0.3rem;
   grid-auto-flow: column;
 }
 
@@ -86,27 +97,33 @@ button {
 }
 
 #add-hour {
-    background-color: var(--blue-color);
+  background-color: var(--blue-color);
 }
 
 #minus-hour {
-    background-color: var(--red-color);
+  background-color: var(--red-color);
 }
 
 #add-minute {
-    background-color: var(--blue-color);
+  background-color: var(--blue-color);
 }
 
 #minus-minute {
-    background-color: var(--red-color);
+  background-color: var(--red-color);
 }
 
 #add-second {
-    background-color: var(--blue-color);
+  background-color: var(--blue-color);
 }
 
 #minus-second {
-    background-color: var(--red-color);
+  background-color: var(--red-color);
+}
+
+#duration-submit {
+  background-color: var(--green-color);
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown {

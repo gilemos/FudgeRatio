@@ -9,7 +9,10 @@ const buttonMinusSecond = document.getElementById("minus-second");
 const text = document.getElementById("timer");
 const durationText = document.getElementById("time");
 const dropdown = document.getElementById("dropdown-contents");
+const timerContents = document.getElementById("timer-contents");
+const durationContents = document.getElementById("time-duration-contents");
 
+timerContents.style.display = "block";
 button.textContent = "Start";
 
 let seconds = 0,
