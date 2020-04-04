@@ -85,6 +85,30 @@ button {
   margin: 1rem;
 }
 
+#add-hour {
+    background-color: var(--blue-color);
+}
+
+#minus-hour {
+    background-color: var(--red-color);
+}
+
+#add-minute {
+    background-color: var(--blue-color);
+}
+
+#minus-minute {
+    background-color: var(--red-color);
+}
+
+#add-second {
+    background-color: var(--blue-color);
+}
+
+#minus-second {
+    background-color: var(--red-color);
+}
+
 .dropdown {
   margin-bottom: 1.5rem;
 }
