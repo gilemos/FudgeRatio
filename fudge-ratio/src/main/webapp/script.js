@@ -11,9 +11,15 @@ const durationText = document.getElementById("time");
 const dropdown = document.getElementById("dropdown-contents");
 const timerContents = document.getElementById("timer-contents");
 const durationContents = document.getElementById("time-duration-contents");
+const durationSubmit = document.getElementById("duration-submit");
 
-timerContents.style.display = "block";
+timerContents.style.display = "none";
 button.textContent = "Start";
+
+durationSubmit.addEventListener("click", () => {
+    durationContents.style.display = "none";
+    timerContents.style.display = "block";
+});
 
 let seconds = 0,
   minutes = 0,
