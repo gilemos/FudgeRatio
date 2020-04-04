@@ -79,6 +79,12 @@ button {
   margin: 1rem;
 }
 
+#time {
+  font-size: calc(4 * var(--base));
+  font-weight: 300;
+  margin: 1rem;
+}
+
 .dropdown {
   margin-bottom: 1.5rem;
 }
