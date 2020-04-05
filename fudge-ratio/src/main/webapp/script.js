@@ -17,8 +17,8 @@ timerContents.style.display = "none";
 button.textContent = "Start";
 
 durationSubmit.addEventListener("click", () => {
-    durationContents.style.display = "none";
-    timerContents.style.display = "block";
+  durationContents.style.display = "none";
+  timerContents.style.display = "block";
 });
 
 let seconds = 0,
