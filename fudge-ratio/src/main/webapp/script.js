@@ -1,13 +1,32 @@
 const button = document.getElementById("startStopButton");
 const buttonClear = document.getElementById("clear");
+const buttonAddHour = document.getElementById("add-hour");
+const buttonMinusHour = document.getElementById("minus-hour");
+const buttonAddMinute = document.getElementById("add-minute");
+const buttonMinusMinute = document.getElementById("minus-minute");
+const buttonAddSecond = document.getElementById("add-second");
+const buttonMinusSecond = document.getElementById("minus-second");
 const text = document.getElementById("timer");
+const durationText = document.getElementById("time");
 const dropdown = document.getElementById("dropdown-contents");
+const timerContents = document.getElementById("timer-contents");
+const durationContents = document.getElementById("time-duration-contents");
+const durationSubmit = document.getElementById("duration-submit");
 
+timerContents.style.display = "none";
 button.textContent = "Start";
+
+durationSubmit.addEventListener("click", () => {
+  durationContents.style.display = "none";
+  timerContents.style.display = "block";
+});
 
 let seconds = 0,
   minutes = 0,
-  hours = 0;
+  hours = 0,
+  durationSec = 0,
+  durationMin = 0,
+  durationHour = 0;
 let timer = null;
 let task = "";
 let duration = " PLACE HOLDER"; //leaving this here for now because it might interfere with how Jerry wants to do things
@@ -69,6 +88,57 @@ buttonClear.addEventListener("click", () => {
   (seconds = 0), (minutes = 0), (hours = 0);
   updateText();
   cleanSessionState();
+});
+
+buttonAddHour.addEventListener("click", () => {
+    durationHour += 1;
+    durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
+});
+
+buttonMinusHour.addEventListener("click", () => {
+    if(durationHour > 0) {
+        durationHour -= 1;
+    }
+    durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
+});
+
+buttonAddMinute.addEventListener("click", () => {
+    if(durationMin == 59) {
+        durationMin = 0;
+        durationHour += 1;
+    } else {
+        durationMin += 1;
+    }
+    durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
+});
+
+buttonMinusMinute.addEventListener("click", () => {
+    if(durationMin > 0) {
+        durationMin -= 1;
+    }
+    durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
+});
+
+buttonAddSecond.addEventListener("click", () => {
+    if(durationSec == 59) {
+        durationSec = 0;
+        if(durationMin == 59) {
+            durationMin = 0;
+            durationHour += 1;
+        } else {
+            durationMin += 1;
+        }
+    } else {
+        durationSec += 1;
+    }
+    durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
+});
+
+buttonMinusSecond.addEventListener("click", () => {
+    if(durationSec > 0) {
+        durationSec -= 1;
+    }
+    durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
 });
 
 const formatTaskString = () => {

@@ -17,17 +17,30 @@
                     <optgroup label="Job-related tasks" id="Job-related tasks" ></optgroup>
                     <optgroup label="Housework" id="Housework"></optgroup>
                 </select>
-                <input type="number" placeholder="Time Taken" name="newTime"></input>
                 <input type="number" placeholder="Expected Time" name="expectedTime"></input>
+                <input type="number" placeholder="Time Taken" name="newTime"></input>
                 <button>Submit</button>
             </form>
         </div>
-        <div class="timer-contents">
-            <p id="timer">00:00:00</p>
+        <div class="time-duration-contents" id="time-duration-contents">
+            <p>Enter expected time</p>
+            <div class="duration-buttons">
+                <button id="add-hour">+</button>
+                <button id="minus-hour">-</button>
+                <button id="add-minute">+</button>
+                <button id="minus-minute">-</button>
+                <button id="add-second">+</button>
+                <button id="minus-second">-</button>
+            </div>
+            <p id="time">00:00:00</p>
+            <button id="duration-submit">Add Duration</button>
         </div>
-        <div class="timer-buttons">
-            <button id="startStopButton" />
-            <button id="clear">Clear</button>
+        <div class="timer-contents" id="timer-contents">
+            <p id="timer">00:00:00</p>
+            <div class="timer-buttons">
+                <button id="startStopButton" />
+                <button id="clear">Clear</button>
+            </div>
         </div>
         <div id="finalMessage">
             <p> </p>
