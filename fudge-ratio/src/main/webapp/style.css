@@ -1,23 +1,22 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poiret+One&display=swap');
 :root {
-  --background-color: rgb(235, 222, 198);
-  --font-color: rgb(30, 30, 30);
-
+  --background-color: rgb(229, 231, 225);
   --accent-color:rgba(45, 93, 122, 0.712);
   --base: min(3.5vw, 1.7rem);
 }
-body {margin:0;background: var(--background-color);}
+body {
+  margin: 0; 
+  background: var(--background-color);
+}
 
 .banner {
-  overflow: hidden;
-  /* 161, 111, 32, 0.712*/
   background-color: rgba(45, 93, 122, 0.712);
-  font-family: 'Open Sans', sans-serif;
   font-family: 'Poiret One', cursive;
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 15vh;
 }
 
@@ -31,57 +30,84 @@ body {margin:0;background: var(--background-color);}
   text-decoration: none;
 }
 
-.main {
-  height: 120vh; /* Used in this example to enable scrolling */
-}
-.textBox {
-  border: .5vh solid rgba(161, 118, 80, 1);
+.textBox {  
+  align-content: 90vw;
+  height: 20vh; 
   margin-top: 12vh;
-  margin-left: 9vw;
-  margin-right: 9vw;
   padding: 5vh 3vw 30vh 3vw;
-  border-radius:15px 50px; 
-  background-color: rgba( 161, 111, 32, 0.7);
-  box-shadow: 10px 10px 5px grey;
   text-align: center; 
   font-size: 4vh;
-  width: 90vw;
-  height: 25vh; 
-}
-.nav{
-  display: flex;
-  overflow: scroll;
-  width: 72vw;
-  margin-top: 30vh;
-  margin-left: 9vw;
-  margin-right: 9vw;
-}
-.timerIcon {
-  border-radius: 50%;
-  margin: 5vh;
-  height: 25vw;
-  width: 25vw;
-  background-color: cadetblue;
-}
-#text {
-  margin: 12.5vw;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  font-size: 5vh;
-}
-.steveIcon {
-  border-radius: 50%;
-  margin: 5vh;
-  height: 25vw;
-  width: 25vw;
-  background-color: cadetblue;
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(37, 51, 51);
 
 }
+
+.iconBox {
+  display: flex;
+  margin-top: 10vh;
+}
+
+.startIcon {
+  height: 30vw;
+  width: 30vw;
+  border-radius: 50%;
+  border: .5vh solid var(--accent-color);
+  margin: 5vh;
+  background-color:olive;
+  box-shadow: 1px 1px 11px grey;
+}
+
+.startIcon:hover {
+  box-shadow: 20px 20px 40px grey;
+}
+
+#text {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.learnIcon {
+  border: .5vh solid slategray;
+  border-radius: 50%;
+  margin: 5vh;
+  height: 20vw;
+  width: 20vw;
+  background-color: rgb(3, 79, 126);
+  box-shadow: 1px 1px 11px grey;
+}
+
+.learnIcon:hover {
+  box-shadow: 10px 10px 20px grey;
+}
+
 .ourIcon {
   border-radius: 50%;
+  border: .5vh solid slategray;
   margin: 5vh;
-  height: 25vw;
-  width: 25vw;
-  background-color: cadetblue;
-
+  height: 20vw;
+  width: 20vw;
+  background-color: rgb(3, 79, 126);
+  box-shadow: 1px 1px 11px grey;
 }
+.ourIcon:hover {
+  box-shadow: 10px 10px 20px grey;
+}
+
+/* so the entire circle will act as a link rather than just the words*/
+a.fill-div { 
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 110%;
+    font-family: 'Do Hyeon', sans-serif;
+    color: whitesmoke;
+}
+
+
+
