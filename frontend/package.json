@@ -4,7 +4,8 @@
   "description": "Calculator for thinking about a fudgeratio using appengine",
   "main": "code/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build code/index.js -d ../fudge-ratio/src/main/webapp/"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/gilemos/FudgeRatio/issues"
   },
-  "homepage": "https://github.com/gilemos/FudgeRatio#readme"
+  "homepage": "https://github.com/gilemos/FudgeRatio#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
 }

@@ -3,3 +3,7 @@ appengine-generated/
 
 # maven
 target/
+
+# frontend
+.cache/
+node_modules/
