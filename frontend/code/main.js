@@ -180,6 +180,7 @@ function loadActivities() {
         })
     });
 }
+loadActivities();
 
 function createElement(act) {
     const optionElement = document.createElement("OPTION");
