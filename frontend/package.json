@@ -2,9 +2,9 @@
   "name": "fudgeratio",
   "version": "1.0.0",
   "description": "Calculator for thinking about a fudgeratio using appengine",
-  "main": "code/index.js",
+  "main": "code/main.js",
   "scripts": {
-    "build": "parcel build code/index.js -d ../fudge-ratio/src/main/webapp/"
+    "build": "parcel build code/main.js -d ../fudge-ratio/src/main/webapp/"
   },
   "repository": {
     "type": "git",
