@@ -1,52 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="calculator.css" />
-        <title>Fudge Ratio</title>
-    </head>
-    <body>
-        <h1>Fudge Ratio Calculator</h1>
-        <p>Select a task and click the start button when you're ready!</p>
-        <div class="dropdown">
-            <label>Choose a task:</label>
-            <form method="POST" action="/data">
-                <select id="dropdown-contents" name="name">
-                    <option value="" selected="selected">Select one</option>
-                    <optgroup label="Schoolwork" id="Schoolwork"> </optgroup>
-                    <optgroup label="Job-related tasks" id="Job-related tasks" ></optgroup>
-                    <optgroup label="Housework" id="Housework"></optgroup>
-                </select>
-                <input type="number" placeholder="Expected Time" name="expectedTime"></input>
-                <input type="number" placeholder="Time Taken" name="newTime"></input>
-                <button>Submit</button>
-            </form>
-        </div>
-        <div class="time-duration-contents" id="time-duration-contents">
-            <p>Enter expected time</p>
-            <div class="duration-buttons">
-                <button id="add-hour">+</button>
-                <button id="minus-hour">-</button>
-                <button id="add-minute">+</button>
-                <button id="minus-minute">-</button>
-                <button id="add-second">+</button>
-                <button id="minus-second">-</button>
-            </div>
-            <p id="time">00:00:00</p>
-            <button id="duration-submit">Add Duration</button>
-        </div>
-        <div class="timer-contents" id="timer-contents">
-            <p id="timer">00:00:00</p>
-            <div class="timer-buttons">
-                <button id="startStopButton" />
-                <button id="clear">Clear</button>
-            </div>
-        </div>
-        <div id="finalMessage">
-            <p> </p>
-        </div>
-
-        <a href="/activitiesManager.html"> Go to activities Manager </a>
-    </body>
-    <script defer type="module" src="main.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/expectedTime.css" />
+    <link rel="stylesheet" href="styles/dropdown.css" />
+    <link rel="stylesheet" href="styles/mainScreen.css" />
+    <title>Fudge Ratio Calculator</title>
+  </head>
+  <body>
+    <h1>Fudge Ratio Calculator</h1>
+    <p>
+      Select a estimated time, a task and click the start button when you're
+      ready!
+    </p>
+    <div id="content" />
+  </body>
+  <script defer type="module" src="./main.js"></script>
 </html>
