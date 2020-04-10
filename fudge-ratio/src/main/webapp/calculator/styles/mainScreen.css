@@ -1,0 +1,31 @@
+:root {
+  --margin-section: calc(4 * var(--base));
+}
+
+#timer-contents #title {
+  font-size: calc(1.3 * var(--base));
+  margin-top: var(--margin-section);
+}
+
+#timer-contents #timer-display {
+  font-size: calc(4 * var(--base));
+  margin: 0;
+}
+
+#timer-contents #start-stop {
+  background-color: var(--green-color);
+}
+
+#timer-contents #finish {
+  background-color: var(--blue-color);
+}
+
+#timer-contents #clear {
+  background-color: var(--red-color);
+  margin-top: calc(1.5 * var(--base));
+}
+
+#timer-contents {
+  transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s;
+}
