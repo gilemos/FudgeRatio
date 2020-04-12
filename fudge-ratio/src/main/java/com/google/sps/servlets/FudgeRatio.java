@@ -1,21 +1,34 @@
+package com.google.sps.servlets;
 
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.PreparedQuery;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.util.HashMap;
+import java.util.Map;
+import com.google.gson.Gson;
+
 @WebServlet("/data")
-public class DataServlet extends HttpServlet {
+public class FudgeRatio extends HttpServlet {
 
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+	throws IOException {
+		final String start = request.getParameter("start");
+		final String end = request.getParameter("end");
+		final int expected = Integer.parseInt(request.getParameter("expected"));
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
-    }
+		final Gson gson = new Gson();
+		final Map < String,
+		Double > result = new HashMap < String,
+		Double > ();
+		result.put("ratio", calculateRatio(start, end, expected));
+
+		response.setContentType("application/json;");
+		response.getWriter().println(gson.toJson(result));
+	}
 
 
     /**
@@ -46,3 +59,4 @@ public class DataServlet extends HttpServlet {
         double ratio = actualDuration / expected; 
         return ratio;
     }
+}
