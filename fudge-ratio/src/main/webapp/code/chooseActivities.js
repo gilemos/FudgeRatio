@@ -34,13 +34,13 @@ const appendActivities = async () => {
 
 const showActivities = () =>
   new Promise(async (resolve, _) => {
-    const activityStorage = localStorage.getItem(KEYS.INDEX_KEY);
+    const activityStorage = localStorage.getItem(KEYS.ACTIVITY_KEY);
     if (activityStorage) {
       resolve(activityStorage);
       return;
     }
     parent.appendChild(createFromText(dropdownText));
-    await appendActivities();
+    appendActivities();
 
     const submitButton = get("submit");
     const options = get("options");
@@ -48,7 +48,7 @@ const showActivities = () =>
 
     submitButton.onclick = () => {
       if (submitButton.disabled) return;
-      localStorage.setItem(KEYS.INDEX_KEY, options.selectedIndex);
+      localStorage.setItem(KEYS.ACTIVITY_KEY, options.value);
       const close = () => {
         parent.innerHTML = null;
         resolve(options.value);
@@ -59,5 +59,4 @@ const showActivities = () =>
     };
   });
 
-export { getActivities };
 export default showActivities;
