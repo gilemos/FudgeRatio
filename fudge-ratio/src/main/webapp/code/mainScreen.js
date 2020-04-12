@@ -36,7 +36,7 @@ const showMain = () =>
     let id = null;
     startStop.onclick = () => {
       if (startStop.textContent !== "Stop") {
-        id = setInterval(() => (text.textContent = timer.addSeconds(1).getText()), 100);
+        id = setInterval(() => (text.textContent = timer.addSeconds(1).getText()), 1000);
         startStop.textContent = "Stop";
         startStop.style.backgroundColor = "var(--red-color)";
         text.style.fontWeight = 700;
