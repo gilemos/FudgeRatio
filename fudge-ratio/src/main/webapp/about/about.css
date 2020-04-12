@@ -2,52 +2,203 @@
 @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poiret+One&display=swap');
 :root {
-  --background-color: rgb(224, 239, 241);
-  --font-color: rgb(30, 30, 30);
+  --background-color: rgb(229, 231, 225);
   --accent-color:rgba(45, 93, 122, 0.712);
+  --block-color:rgb(158, 158, 2);
+  --base: min(3.5vw, 1.7rem);
 }
-
 body { 
-  margin:0; 
+  margin:0;
   background: var(--background-color);
 }
-
+/* Style for the bar on top and text on top*/
 .banner {
-  overflow: hidden;
-  /* 161, 111, 32, 0.712*/
+  z-index: 3;
+  word-wrap: break-word;
+  backdrop-filter: blur(2rem);
   background-color: rgba(45, 93, 122, 0.712);
   font-family: 'Poiret One', cursive;
   position: fixed;
   top: 0;
-  width: 100vw;
-  height: 15vh;
+  width: 100%;
+  height: 12vh;
+  padding-top:2%;  
+  padding-left:2%; 
 }
 
-#logo{
+#logo {
+  z-index: 4;
+  font-family: 'Poiret One', sans-serif;
+  display:flex; 
+  word-wrap: break-word;
+  align-items: flex-end;  
+  size:inherit;
   float: left;
-  font-size: 6.5vh;
-  display: block;
+  bottom:2vh; 
+  margin:0;
+  position: fixed;
+  font-size: 5vw;
   color: #f2f2f2;
-  text-align: center;
-  padding: 5px 10px;
+  text-align: left;
   text-decoration: none;
 }
-
-
+#title {
+  margin: 18vh 0vw 3vh 0vw;
+  text-align: center;
+  font-size: 10vh;
+  color: rgb(37, 51, 51); 
+}
+h1 {
+    font-family: 'Open Sans', sans-serif;
+}
 .textBox {
-  padding: 5vh 3vw 20vh 3vw;
-  border-radius:15px 50px; 
+  margin-top: 0vh;
+  margin-bottom: 15vh;
   font-family: 'Open Sans', sans-serif;
   text-align: center; 
-  font-size: 4vh;
+  font-size: 2.5vh;
   color: rgb(37, 51, 51);
-  width: 90vw;
-  height: 20vh; 
+}
+/*ending of style for top part of page*/
+
+/*Beginning of style for the expandable grid*/
+ .row {
+  border-radius: 5vw;
+  position: relative;
+  width: 64vw;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  justify-content: center;
+  background: none;
+  margin: 0 auto;
+ }
+.pictureBox {
+  position: relative; 
+  overflow: auto;
+  float: left;
+  width: 32vw;
+  height: 65vh;
+  border-radius: 5vw;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  padding:0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 5vw;
+  color: rgb(229, 231, 225);
+}
+#Gi {
+  background-image: url("oscar_pic.jpg");
+}
+#Jerry {
+  background-image: url("jerry_pic.jpg");
+}
+#Oscar {
+  background-image: url("oscar_pic.jpg");
+}
+#Yaa {
+  background-image: url("yaa_pic.jpg");
+}
+#name{  
+  z-index: 2; 
+  font-weight: bold;
+  font-family: 'Poiret One', sans-serif;
+  font-size: 10vh;
+  vertical-align: top;
+  padding-left: 1.5vw;
+  border-radius: 5vw;
+  position: absolute; 
+  width: 25vh;
+  height: 25vh;
+  text-align: left; 
+}
+#triangle{
+  z-index: 1;
+  border-bottom-right-radius: 5vw;
+  position: absolute; 
+  text-align: left; 
+  width: 0;
+  height: 0;
+  clear: none; 
+  border-top: 25vh solid #838f3f7e;
+  border-right: 25vh solid transparent;
 }
 
-.bio {
+.bioContainer {
+  display:none;
+  padding: 2vh 3vw;
+}
+#giBio, #oscarBio , #jerryBio, #yaaBio {
+  width: 40vw;
+  height: 50vh;
+  margin: 0 auto;
+  border-radius: 5vh;
+  background: rgba(109, 157, 187, 0.712);
+  box-shadow: 2vh 2vh 2vh grey;
+  overflow-y: scroll;
+}
+
+/* Clear makes the bio box's appear after the first row of pictures */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  float: right;
+  color: var(--background-color);
+  font-size: 4vh;
+  cursor: pointer;
+}
+
+.bioText {
   font-family: 'Open Sans', sans-serif;
   text-align: center; 
-  font-size: 4vh;
+  font-size: 3vh;
   color: rgb(37, 51, 51); 
+}
+
+@media only screen and (max-width: 1100px) {
+  #logo {
+    position:relative;  
+    font-size: 10vw;
+    bottom:1vh;  
+  }
+  .bioContainer {
+    position: inherit;
+    padding: 2vh 3vw;
+   }
+  .banner {           
+    width: 100%;
+    height: 10vh;
+    padding-top:5%; 
+  }
+  #title {
+    font-size: 7vh;
+  }
+  .textBox {  
+    margin-top: 5vh;
+  }
+  .row {
+    border-radius: 5vw;
+    position: relative;
+    width: 65vw;
+    display: block;
+    overflow:display;
+    justify-content: center;
+    background: none;
+    margin: 0 auto;
+  }
+  .pictureBox {
+    width: 65vw;
+    height: 65vh;
+  }
+  #giBio, #oscarBio , #jerryBio, #yaaBio {
+    position: inherit;
+    width: 60vw;
+    height: 50vh;
+  } 
 }

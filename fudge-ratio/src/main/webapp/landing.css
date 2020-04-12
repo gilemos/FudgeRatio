@@ -11,23 +11,32 @@ body {
   background: var(--background-color);
 }
 
+#logo{
+  display:flex; 
+  word-wrap: break-word;
+  align-items: flex-end;  
+  size:inherit;
+  float: left;
+  bottom:2vh; 
+  margin:0;
+  position: fixed;
+  font-size: 5vw;
+  color: #f2f2f2;
+  text-align: left;
+  /*padding: 0;*/
+  text-decoration: none;
+}
 .banner {
+  word-wrap: break-word;
+  backdrop-filter: blur(2rem);
   background-color: rgba(45, 93, 122, 0.712);
   font-family: 'Poiret One', cursive;
   position: fixed;
   top: 0;
   width: 100%;
-  height: 15vh;
-}
-
-#logo{
-  float: left;
-  font-size: 6.5vh;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 5px 10px;
-  text-decoration: none;
+  height: 12vh;
+  padding-top:2%;  
+  padding-left:2%; 
 }
 
 .textBox {  
@@ -39,11 +48,14 @@ body {
   font-size: 4vh;
   font-family: 'Open Sans', sans-serif;
   color: rgb(37, 51, 51);
-
 }
 
 .iconBox {
   display: flex;
+  /*overflow: hidden;*/ 
+  justify-content: center;
+  align-items: center;
+  /*grid-template-columns: fit-content(30px) fit-content(30px) 1fr;*/
   margin-top: 10vh;
 }
 
@@ -52,18 +64,20 @@ body {
   width: 30vw;
   border-radius: 50%;
   border: .5vh solid var(--accent-color);
-  margin: 5vh;
+  margin: auto;
   background-color:olive;
-  box-shadow: 1px 1px 11px grey;
+  box-shadow: 1vh 1vh 5vh grey;
 }
 
 .startIcon:hover {
-  box-shadow: 20px 20px 40px grey;
+  box-shadow: 4vh 4vh 4vh grey;
 }
 
 #text {
   height: 100%;
   width: 100%;
+
+  font-size: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,28 +86,28 @@ body {
 .learnIcon {
   border: .5vh solid slategray;
   border-radius: 50%;
-  margin: 5vh;
+  margin:auto;
   height: 20vw;
   width: 20vw;
   background-color: rgb(3, 79, 126);
-  box-shadow: 1px 1px 11px grey;
+  box-shadow: 1vh 1vh 5vh grey;
 }
 
 .learnIcon:hover {
-  box-shadow: 10px 10px 20px grey;
+  box-shadow: 2vh 2vh 2vh grey;
 }
 
 .ourIcon {
   border-radius: 50%;
   border: .5vh solid slategray;
-  margin: 5vh;
+  margin:auto;
   height: 20vw;
   width: 20vw;
   background-color: rgb(3, 79, 126);
-  box-shadow: 1px 1px 11px grey;
+  box-shadow: 1vh 1vh 5vh grey;
 }
 .ourIcon:hover {
-  box-shadow: 10px 10px 20px grey;
+  box-shadow: 2vh 2vh 2vh grey;
 }
 
 /* so the entire circle will act as a link rather than just the words*/
@@ -110,4 +124,36 @@ a.fill-div {
 }
 
 
+@media only screen and (max-width: 1100px) {
+  #logo {
+    position:relative;  
+    font-size: 10vw;
+    bottom:1vh;  
+  }
 
+  .banner {
+    display:flex; 
+    word-wrap: break-word;
+     align-items: flex-end;           
+    backdrop-filter: blur(2rem);
+    background-color: rgba(45, 93, 122, 0.712);
+    font-family: 'Poiret One', cursive;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    padding-top:5%; 
+
+   }
+  .textBox {  
+    margin-top: 9vh;
+  }
+  .ourIcon {
+    font-size: 80%;
+  }
+  .learnIcon {
+    font-size: 80%;
+  }
+  .startIcon {
+    font-size: 95%;
+  }
+}
