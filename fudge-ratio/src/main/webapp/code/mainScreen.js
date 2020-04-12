@@ -11,13 +11,13 @@ const mainText = `
         <button id="clear">Reset all</button>
       </div>
       <p id="result"></p>
+      <p id="average"></p>
     </div>
   </div>
   `;
 
 import { get, parent, createFromText } from "./utils.js";
 import { KEYS } from "./save.js";
-import { getActivities } from "./chooseActivities.js";
 import Timer from "./time.js";
 
 const showMain = () =>
@@ -27,12 +27,8 @@ const showMain = () =>
 
     parent.appendChild(createFromText(mainText));
 
-    const index = parseInt(localStorage.getItem(KEYS.INDEX_KEY));
-    let activity = "";
-    getActivities().then(activities => {
-      activity = activities[index].name;
-      get("title").textContent = `You are doing ${activity}`;
-    });
+    const activity = localStorage.getItem(KEYS.ACTIVITY_KEY);
+    get("title").textContent = "You are doing : " + activity;
 
     const text = get("timer-display");
     const startStop = get("start-stop");
@@ -40,7 +36,7 @@ const showMain = () =>
     let id = null;
     startStop.onclick = () => {
       if (startStop.textContent !== "Stop") {
-        id = setInterval(() => (text.textContent = timer.addSeconds(1).getText()), 1000);
+        id = setInterval(() => (text.textContent = timer.addSeconds(1).getText()), 100);
         startStop.textContent = "Stop";
         startStop.style.backgroundColor = "var(--red-color)";
         text.style.fontWeight = 700;
@@ -65,11 +61,29 @@ const showMain = () =>
       location.reload();
     };
 
-    get("finish").onclick = () => {
-      startStop.click()
-      const estimated = new Timer(localStorage.getItem(KEYS.EXPECTED_KEY));
-      const ratio = timer.seconds / estimated.seconds;
-      get("result").textContent = `Next time please allocate ${ratio.toFixed(2)}x for ${activity}`;
+    get("finish").onclick = async () => {
+      startStop.click();
+      const start = new Timer().getText();
+      const end = timer.getText();
+      const expected = new Timer(localStorage.getItem(KEYS.EXPECTED_KEY)).seconds;
+
+      const response = await fetch("/fudgeRatio", {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json;charset=UTF-8" },
+        body: JSON.stringify({ start, end, expected }),
+      });
+
+      const { ratio } = await response.json();
+      get("result").textContent = `Next time think about allocating ${ratio.toFixed(2)}x 
+      ${ratio > 1 ? "more" : "less"}
+      for ${activity}`;
+
+      const responseData = await fetch("/data");
+      const data = await responseData.json();
+      const average = data.find(element => element.name === activity).avgFudgeRatio;
+      get("average").textContent = `Users usually take ${average}x ${
+        average > 1 ? "more" : "less"
+      } than expected for ${activity}`;
     };
   });
 
