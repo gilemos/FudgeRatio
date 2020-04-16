@@ -1,96 +1,64 @@
-const buttonAddHour = document.getElementById("add-hour");
-const buttonMinusHour = document.getElementById("minus-hour");
-const buttonAddMinute = document.getElementById("add-minute");
-const buttonMinusMinute = document.getElementById("minus-minute");
-const buttonAddSecond = document.getElementById("add-second");
-const buttonMinusSecond = document.getElementById("minus-second");
+const expectedTimeText = `
+  <div id="expected-time">
+    <p class="title">Enter expected time:</p>
+    <div class="duration-buttons">
+      <button title="Add hour" id="add-hour">∧</button>
+      <button title="Add minute" id="add-minute">∧</button>
+      <button title="Add second" id="add-second">∧</button>
+    </div>
+    <p id="timer-display">00:00:00</p>
+    <div class="duration-buttons">
+      <button title="Minus hour" id="minus-hour">∨</button>
+      <button title="Minus minute" id="minus-minute">∨</button>
+      <button title="Minus second" id="minus-second">∨</button>
+    </div>
+    <button disabled id="submit">Add Duration</button>
+  </div>
+  `;
 
-const durationContents = document.getElementById("time-duration-contents");
-const durationSubmit = document.getElementById("duration-submit");
+import { get, parent, createFromText } from "./utils.js";
+import { KEYS } from "./save.js";
+import Timer from "./time.js";
 
-const durationText = document.getElementById("time");
+const showExpectedTime = () =>
+  new Promise((resolve, _) => {
+    const timer = new Timer();
 
-const timerContents = document.getElementById("timer-contents");
-const dropdown = document.getElementById("dropdown-contents");
-
-const padd = num => {
-  const padding = num < 10 ? "0" : "";
-  return padding + num;
-};
-
-let durationSec = 0,
-  durationMin = 0,
-  durationHour = 0;
-
-const duration = localStorage.getItem("expected");
-
-durationSubmit.addEventListener("click", () => {
-  durationContents.style.display = "none";
-  timerContents.style.display = "block";
-  dropdown.style.display = "block";
-
-  localStorage.setItem(
-    "expected",
-    [durationHour, durationMin, durationSec].map(e => padd(e)).join(":")
-  );
-});
-
-if (duration) {
-  [durationHour, durationMin, durationSec] = duration.split(":").map(e => Number(e));
-
-  durationSubmit.click();
-} else {
-  timerContents.style.display = "none";
-  dropdown.style.display = "none";
-}
-
-buttonAddHour.addEventListener("click", () => {
-  durationHour += 1;
-  durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
-});
-
-buttonMinusHour.addEventListener("click", () => {
-  if (durationHour > 0) {
-    durationHour -= 1;
-  }
-  durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
-});
-
-buttonAddMinute.addEventListener("click", () => {
-  if (durationMin == 59) {
-    durationMin = 0;
-    durationHour += 1;
-  } else {
-    durationMin += 1;
-  }
-  durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
-});
-
-buttonMinusMinute.addEventListener("click", () => {
-  if (durationMin > 0) {
-    durationMin -= 1;
-  }
-  durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
-});
-
-buttonAddSecond.addEventListener("click", () => {
-  if (durationSec == 59) {
-    durationSec = 0;
-    if (durationMin == 59) {
-      durationMin = 0;
-      durationHour += 1;
-    } else {
-      durationMin += 1;
+    const expectedStorage = localStorage.getItem(KEYS.EXPECTED_KEY);
+    if (expectedStorage) {
+      resolve(expectedStorage);
+      return;
     }
-  } else {
-    durationSec += 1;
-  }
-  durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
-});
 
-buttonMinusSecond.addEventListener("click", () => {
-  if (durationSec > 0) {
-    durationSec -= 1;
-  }
-  durationText.textContent = padd(durationHour) + ":" + padd(durationMin) + ":" + padd(durationSec);
-});
+    parent.appendChild(createFromText(expectedTimeText));
+    const text = get("timer-display");
+    const updateAndShow = time => () => (text.textContent = timer.addSeconds(time).getText());
+    get("add-second").onclick = updateAndShow(1);
+    get("minus-second").onclick = updateAndShow(-1);
+
+    get("add-minute").onclick = updateAndShow(60);
+    get("minus-minute").onclick = updateAndShow(-60);
+
+    get("add-hour").onclick = updateAndShow(3600);
+    get("minus-hour").onclick = updateAndShow(-3600);
+
+    const submitButton = get("submit");
+    text.addEventListener(
+      "DOMSubtreeModified",
+      () => (submitButton.disabled = timer.getText() === "00:00:00")
+    );
+
+    submitButton.onclick = () => {
+      if (submitButton.disabled) return;
+      localStorage.setItem(KEYS.EXPECTED_KEY, timer.getText());
+      const close = () => {
+        parent.innerHTML = null;
+        resolve(timer.getText());
+      };
+
+      get("expected-time").style.opacity = "0";
+      setTimeout(close, 400);
+    };
+  });
+
+export default showExpectedTime;

@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,700&display=swap");
+
+:root {
+  --base: 2vmax;
+
+  --background-color: rgb(240, 240, 240);
+  --font-color: rgb(30, 30, 30);
+
+  --green-color: rgba(64, 140, 64, 0.8);
+  --red-color: rgba(196, 32, 32, 0.8);
+  --blue-color: rgba(45, 64, 140, 0.8);
+  --disabled-color: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  background: var(--background-color);
+  color: var(--font-color);
+  margin: 6vmax 2vmax;
+
+  font-family: "Inter", sans-serif;
+  font-size: var(--base);
+  text-align: center;
+
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+}
+
+h1 {
+  font-size: calc(1.4 * var(--base));
+}
+
+p,
+label {
+  font-size: var(--base);
+}
+
+button {
+  padding: 0.8rem 3rem;
+  border-radius: 0.5rem;
+  border: 0;
+
+  background-color: var(--disabled-color);
+  color: white;
+  font-weight: 600;
+  font-size: var(--base);
+}
+
+#submit {
+  margin: var(--margin-section) auto;
+  font-size: calc(1.15 * var(--base));
+  background-color: var(--green-color);
+  display: block;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 1200px) {
+  :root {
+    --base: 1.6vmax;
+  }
+}

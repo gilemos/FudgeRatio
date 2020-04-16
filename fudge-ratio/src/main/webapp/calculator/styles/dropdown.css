@@ -1,0 +1,30 @@
+:root {
+  --margin-section: calc(3 * var(--base));
+}
+
+#dropdown {
+  background-color: rgba(153, 227, 250, 0.4);
+  padding: calc(2 * var(--base));
+  display: inline-block;
+  border-radius: 1rem;
+  margin-top: var(--margin-section);
+
+  transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s;
+}
+
+#dropdown label {
+  font-size: calc(1.2 * var(--base));
+  font-weight: 700;
+}
+
+#dropdown select {
+  width: 35vw;
+  font-size: calc(1.2 * var(--base));
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.1rem;
+}
+
+#dropdown select:hover {
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.35);
+}

@@ -1,0 +1,29 @@
+:root {
+  --margin-section: calc(4 * var(--base));
+}
+
+#expected-time .title {
+  font-size: calc(1.3 * var(--base));
+  margin-top: var(--margin-section);
+}
+
+#expected-time #timer-display {
+  font-size: calc(4 * var(--base));
+  margin: 0;
+}
+
+#expected-time .duration-buttons button {
+  margin: 0 var(--base);
+  width: calc(4 * var(--base));
+  height: calc(2 * var(--base));
+  padding: 0;
+}
+
+#expected-time .duration-buttons button {
+  background-color: var(--blue-color);
+}
+
+#expected-time {
+  transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s;
+}
