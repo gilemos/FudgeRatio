@@ -1,84 +1,137 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="about.css" />
+        <link href="mobile.css" rel="stylesheet" media="screen and (max-width: 1100px)">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Us</title>
     </head>
     <body>
         <div class="banner">
             <h1 id="logo">Fudge Ratio Calculator</h1>
+            <div id="links">
+                <a href="../">Home</a>
+                <a href="/calculator">Calculator</a>
+                <a href="https://www.stevepavlina.com/blog/2008/05/how-to-make-accurate-time-estimates/">Learn More</a>
+            </div>
+            <a href="#" class="menuIcon" onclick="expandNav()">
+                <!-- 3-line menu icon (imported from  above)-->
+                <i class="fa fa-bars"></i> 
+            </a>
         </div>
-            <h1 id="title">About Us</h1> 
+        <h1 id="title">About Us</h1> 
+        <div class="desktop">
             <div class = "textBox">
                 <p>This site was built by Team 36 from Google Software Product Sprint Spring 2020!<p>
                 <p>Click our pictures to get to know us!</p>
-        </div>
-        <!-- The grid: 2 columns -->
-        <div class="row">
-            <div class="pictureBox" id="Gi" onclick="openTab('giBio');">
-                <div id="triangle"></div>
-                <div id="name">Gi</div>
             </div>
-            <div class="pictureBox" id="Jerry" onclick="openTab('jerryBio');">
-                <div id="triangle"></div>
-                <div id="name">Jerry</div>
+            <!-- The grid: 2 columns -->
+            <div class="row">
+                <div class="pictureBox" id="Gi" onclick="openTab('giBio');">
+                    <div id="name">Gi</div>
+                </div>
+                <div class="pictureBox" id="Jerry" onclick="openTab('jerryBio');">
+                    <div id="name">Jerry</div>
+                </div>
             </div>
-        </div>
-
-        <!-- The expanding grid (hidden by default) -->
-        <div id="giBio" class="bioContainer" >
-            <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
-            <div class="bioText">
-                <h2>Giovanna</h2>
-                <p>A computer science student from Brazil studying in the US. 
-                    Passionate about projects that promote social change. Hackathon geek, 
-                    a passionate beginner in Machine Leaning and Augmented Reality research 
-                    and design enthusiast. </p>
+            <!-- The expanding grid (hidden by default) -->
+            <div id="giBio" class="bioContainer" >
+                <span onclick="closeTab()" class="closebtn">x</span>
+                <div class="bioText">
+                    <h2>Giovanna</h2>
+                    <p>A computer science student from Brazil studying in the US. 
+                        Passionate about projects that promote social change. Hackathon geek, 
+                        a passionate beginner in Machine Leaning and Augmented Reality research 
+                        and design enthusiast. </p>
+                </div>
             </div>
-        </div>
-
-        <div id="jerryBio" class="bioContainer" >
-            <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
-            <div class="bioText">
-                <h2>Jerry</h2>
-                <p>A Computer Engineering student attending Florida State University. 
+            <div id="jerryBio" class="bioContainer" >
+                <span onclick="closeTab()" class="closebtn">x</span>
+                <div class="bioText">
+                    <h2>Jerry</h2>
+                    <p>A Computer Engineering student attending Florida State University. 
                         Loves technology, sports, music, food, video games, art, and the outdoors. </p>
+                </div>
+            </div>
+            <div id="oscarBio" class="bioContainer" >
+                <span onclick="closeTab()" class="closebtn">x</span>
+                <div class="bioText">
+                    <h2>Oscar</h2>
+                    <p> A computer science student, engineer, addicted to memes, working to become a better version of myself.
+                        Interested in competitive programming, even if I suck at it. I believe the web is the platform of the future.
+                        Lover of pure mathematics, the more useless the better, economics, machine learning and philosophy. </p>
+                </div>
+            </div>
+            <div id="yaaBio" class="bioContainer" >
+                <span onclick="closeTab()" class="closebtn">x</span>
+                <div class="bioText">
+                    <h2>Yaa</h2>
+                    <p>A computer science and psychology student at Yale University 
+                        interested in UX and UI design. 
+                        Loves volunteering and working with kids in my community.
+                        Musician and amateur baker in my free time. </p>
+                </div>
+            </div>
+            <!-- End of the expanding grid (hidden by default) -->
+            <!-- rest of the visible grid: 2 columns -->
+            <div class="row">
+                <div class="pictureBox" id="Oscar" onclick="openTab('oscarBio');">
+                    <div id="name">Oscar</div>
+                </div>
+                <div class="pictureBox" id="Yaa" onclick="openTab('yaaBio');">
+                    <div id="name">Yaa</div>
+                </div>
             </div>
         </div>
-        
-        <div id="oscarBio" class="bioContainer" >
-            <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
-            <div class="bioText">
-                <h2>Oscar</h2>
-                <p> A computer science student, engineer, addicted to memes, working to become a better version of myself.
-                Interested in competitive programming, even if I suck at it. I believe the web is the platform of the future.
-                Lover of pure mathematics, the more useless the better, economics, machine learning and philosophy. </p>
+        <!-- html for mobile version (completely different layout) -->
+        <div class="mobile">
+            <div class = "textBox">
+                <p>This site was built by Team 36 from Google Software Product Sprint Spring 2020!<p>
+                <p>Use the slideshow to get to know us!</p>
             </div>
-        </div>
-
-        <div id="yaaBio" class="bioContainer" >
-            <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
-            <div class="bioText">
-                <h2>Yaa</h2>
-                <p>A computer science and psychology student at Yale University. 
-                    Loves volunteering and working with kids in my community.
-                    Musician and amateur baker in my free time. </p>
-            </div>
-        </div>
-        <!-- End of the expanding grid (hidden by default) -->
-
-        <!-- rest of the visible grid: 2 columns -->
-        <div class="row">
-            <div class="pictureBox" id="Oscar" onclick="openTab('oscarBio');">
-                <div id="triangle"></div>
-                <div id="name">Oscar</div>
-            </div>
-            <div class="pictureBox" id="Yaa" onclick="openTab('yaaBio');">
-                <div id="triangle"></div>
-                <div id="name">Yaa</div>
-            </div>
-        </div>
+            <button class = "backButton" onclick="slideDivs(-1)">&#10094;</button>
+            <button class = "forwardButton" onclick="slideDivs(1)">&#10095;</button>
+            <div class="slideshow">
+                <div class="slide">
+                    <div class="pic" id="giSlide"> </div> 
+                    <div class="text" id="giBio">
+                        <h3>Giovanna</h3>
+                        <p>A computer science student from Brazil studying in the US. 
+                            Passionate about projects that promote social change. Hackathon geek, 
+                            a passionate beginner in Machine Leaning and Augmented Reality research 
+                            and design enthusiast. </p>
+                    </div>  
+                </div> 
+                <div class="slide" id ="hidden1">
+                    <div class="pic" id="jerrySlide"> </div> 
+                    <div class="text" id="jerryBio">
+                        <h3>Jerry</h3>
+                        <p> A computer engineering student attending Florida State University. 
+                            Loves technology, sports, music, food, video games, art, and the outdoors. </p>
+                    </div>  
+                </div>
+                <div class="slide" id ="hidden2">
+                    <div class="pic" id="oscarSlide"> </div> 
+                    <div class="text" id="oscarBio">
+                        <h2>Oscar</h2>
+                        <p> A computer science student, engineer, addicted to memes, working to become a better version of myself.
+                            Interested in competitive programming, even if I suck at it. I believe the web is the platform of the future.
+                            Lover of pure mathematics, the more useless the better, economics, machine learning and philosophy.  </p>
+                    </div>  
+                </div> 
+                <div class="slide" id ="hidden3">
+                    <div class="pic" id="yaaSlide"> </div> 
+                    <div class="text" id="yaaBio">
+                        <h2>Yaa</h2>
+                        <p>A computer science and psychology student at Yale University 
+                            interested in UX and UI design. 
+                            Loves volunteering and working with kids in my community.
+                            Musician and amateur baker in my free time. </p>
+                    </div>  
+                </div> 
+            </div> 
+        </div> 
     <script src="about.js"></script>
     </body>
 </html>

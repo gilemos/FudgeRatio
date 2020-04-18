@@ -1,0 +1,104 @@
+.desktop {
+  display: none;
+}
+
+.mobile {
+    display: block;
+}
+
+#logo {
+  font-weight: bold;
+  position: absolute;  
+  font-size: 7.5vw;
+  bottom: 1vh;  
+}
+
+.banner {           
+  width: 100%;
+  height: 9vh;
+  padding-top:5%; 
+}
+
+/*navigation menu */
+#links {
+  display: none;
+  top: 9vh;
+  right: 2vw;
+  position: relative;
+  text-align: right;
+}
+
+a {
+  font-weight: bold;
+  padding: 1vw 1vh;
+  font-size: 4vw;
+}
+
+a.menuIcon {
+  padding: 0vh 1.25vw;
+  font-size: 8vw;
+  right: 2vw;
+  top: 5vh; 
+}
+/*navigation ending */
+
+/*rest of the page */
+#title {
+  font-size: 7vh;
+}
+
+.textBox {  
+  margin-top: 5vh;
+  margin-bottom: 7vh;
+}
+
+.slide {
+  width: 80vw;
+  height: 110vh;
+  margin: 0vh auto;
+  position: inherit;
+}
+
+/*so only the first slide shows */
+#hidden1, #hidden2,  #hidden3 {
+  display: none; 
+} 
+.pic {
+  width: 80vw;
+  height: 80vw;
+  margin: 0 auto; 
+  background-size: cover; 
+}
+.backButton {
+  font-size: 5vw;
+  float:left; 
+  padding: 40vw 4vw;
+}
+.forwardButton {
+  font-size: 5vw;
+  float: right; 
+  padding: 40vw 4vw;
+}
+#giSlide {
+  background-image: url("imgs/gi_pic.jpg");
+}
+#jerrySlide {
+  animation-delay: url("imgs/jerry_pic.jpg");
+}
+#oscarSlide {
+  background-image: url("imgs/oscar_pic.jpg");
+}
+#yaaSlide {
+  background-image: url("imgs/yaa_pic.jpg");
+}
+#giBio, #oscarBio , #jerryBio, #yaaBio {
+  margin-top: 3vh;
+  text-align: center;
+  background-color: rgb(168, 78, 50);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3em;
+  padding: 0 2.5vw; 
+  height: 70vh;
+  width: 75vw; 
+}
+

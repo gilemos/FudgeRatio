@@ -15,7 +15,7 @@ body {
   display:flex; 
   word-wrap: break-word;
   align-items: flex-end;  
-  size:inherit;
+  size: inherit;
   float: left;
   bottom:2vh; 
   margin:0;
@@ -23,7 +23,6 @@ body {
   font-size: 5vw;
   color: #f2f2f2;
   text-align: left;
-  /*padding: 0;*/
   text-decoration: none;
 }
 .banner {
@@ -76,7 +75,6 @@ body {
 #text {
   height: 100%;
   width: 100%;
-
   font-size: 95%;
   display: flex;
   justify-content: center;
@@ -112,15 +110,15 @@ body {
 
 /* so the entire circle will act as a link rather than just the words*/
 a.fill-div { 
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 110%;
-    font-family: 'Do Hyeon', sans-serif;
-    color: whitesmoke;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 110%;
+  font-family: 'Do Hyeon', sans-serif;
+  color: whitesmoke;
 }
 
 
@@ -134,7 +132,7 @@ a.fill-div {
   .banner {
     display:flex; 
     word-wrap: break-word;
-     align-items: flex-end;           
+    align-items: flex-end;           
     backdrop-filter: blur(2rem);
     background-color: rgba(45, 93, 122, 0.712);
     font-family: 'Poiret One', cursive;
@@ -142,17 +140,20 @@ a.fill-div {
     width: 100%;
     height: 10vh;
     padding-top:5%; 
+  }
 
-   }
   .textBox {  
     margin-top: 9vh;
   }
+
   .ourIcon {
     font-size: 80%;
   }
+
   .learnIcon {
     font-size: 80%;
   }
+  
   .startIcon {
     font-size: 95%;
   }
