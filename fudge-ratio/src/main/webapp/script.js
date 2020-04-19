@@ -9,6 +9,7 @@ let seconds = 0,
 let timer = null;
 let task = "";
 let duration = " PLACE HOLDER" //leaving this here for now because it might interfere with how Jerry wants to do things
+let hasActivities = 0;
 
 // Concatenates a zero to the beginning of a number less than 10.
 const padd = num => (num < 10 ? "0" : "") + num;
