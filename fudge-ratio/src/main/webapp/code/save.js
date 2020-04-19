@@ -1,6 +1,6 @@
 const TIME_KEY = "startingTime";
-const INDEX_KEY = "selectedIndex";
+const ACTIVITY_KEY = "selected";
 const EXPECTED_KEY = "expected";
 
-const KEYS = { TIME_KEY, INDEX_KEY, EXPECTED_KEY };
+const KEYS = { TIME_KEY, ACTIVITY_KEY, EXPECTED_KEY };
 export { KEYS };
