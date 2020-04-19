@@ -83,7 +83,7 @@ a.menuIcon {
   background-image: url("imgs/gi_pic.jpg");
 }
 #jerrySlide {
-  animation-delay: url("imgs/jerry_pic.jpg");
+  background-image: url("imgs/jerry_pic.jpg");
 }
 #oscarSlide {
   background-image: url("imgs/oscar_pic.jpg");
