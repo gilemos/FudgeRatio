@@ -42,9 +42,9 @@ public class SetUpServlet extends HttpServlet {
                             "Schoolwork", "Schoolwork", "Job-related tasks", "Job-related tasks", 
                             "Housework", "Housework", "Housework"};
 
-        double expectedTime = 0.00;
-        double avgFudgeRatio = 0.00;
-        long numUsed = 0;
+        double expectedTime = 1.20;
+        double avgFudgeRatio = 1.20;
+        long numUsed = 1;
 
         for (int i = 0; i < names.length; i++) {
             if(activities.contains(names[i])) {
