@@ -152,15 +152,16 @@ h1 {
 }
 
 .bioContainer {
-  display:none;
   padding: 2vh 3vw;
+  transition: padding 0.3s;
+  transition: height 0.6s;
 }
 
 #giBio, #oscarBio , #jerryBio, #yaaBio {
   width: 40vw;
   height: 50vh;
   margin: 0 auto;
-  border-radius: 5vh;
+  border-radius: 2vh;
   background: rgba(109, 157, 187, 0.712);
   box-shadow: 2vh 2vh 2vh grey;
   overflow-y: scroll;
