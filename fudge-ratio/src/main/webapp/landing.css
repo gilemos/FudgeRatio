@@ -1,160 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poiret+One&display=swap');
+
 :root {
   --background-color: rgb(229, 231, 225);
-  --accent-color:rgba(45, 93, 122, 0.712);
+  --accent-color: rgba(45, 93, 122, 0.75);
+  --font-color: rgb(37, 51, 51);
   --base: min(3.5vw, 1.7rem);
-}
-body {
-  margin: 0; 
-  background: var(--background-color);
+  --font-base: calc(1.2vw + 0.8rem);
 }
 
-#logo{
-  display:flex; 
-  word-wrap: break-word;
-  align-items: flex-end;  
-  size: inherit;
-  float: left;
-  bottom:2vh; 
-  margin:0;
-  position: fixed;
-  font-size: 5vw;
-  color: #f2f2f2;
-  text-align: left;
-  text-decoration: none;
+html {
+  background: var(--accent-color) !important;
 }
-.banner {
+
+html,
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+#logo {
+  margin: auto auto;
+  padding-top: calc(0.6 * var(--font-base));
   word-wrap: break-word;
-  backdrop-filter: blur(2rem);
-  background-color: rgba(45, 93, 122, 0.712);
+  font-size: calc(2 * var(--font-base));
+  color: #f2f2f2;
+}
+
+.banner {
+  backdrop-filter: blur(0.6rem);
+  background-color: var(--accent-color);
   font-family: 'Poiret One', cursive;
+  text-align: initial;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 12vh;
-  padding-top:2%;  
-  padding-left:2%; 
+  padding-top: 1rem;
+  padding-left: 1rem;
 }
 
-.textBox {  
-  align-content: 90vw;
-  height: 20vh; 
-  margin-top: 12vh;
-  padding: 5vh 3vw 30vh 3vw;
-  text-align: center; 
-  font-size: 4vh;
+.textBox {
+  background: var(--background-color);
+  padding: 15vh 4vw 10vh 4vw;
+  font-size: min(1.8rem, calc(1.25 * var(--font-base)));
   font-family: 'Open Sans', sans-serif;
-  color: rgb(37, 51, 51);
+  color: var(--font-color);
 }
 
 .iconBox {
   display: flex;
-  /*overflow: hidden;*/ 
   justify-content: center;
   align-items: center;
-  /*grid-template-columns: fit-content(30px) fit-content(30px) 1fr;*/
   margin-top: 10vh;
+}
+
+.startIcon, .learnIcon, .ourIcon {
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 1vh 1vh 4vh grey;
+  transition: box-shadow 0.5s;
+}
+
+.startIcon:hover {
+  box-shadow: 2vh 2.5vh 3vh rgba(33, 33, 33, 0.4);
 }
 
 .startIcon {
   height: 30vw;
   width: 30vw;
-  border-radius: 50%;
-  border: .5vh solid var(--accent-color);
-  margin: auto;
-  background-color:olive;
-  box-shadow: 1vh 1vh 5vh grey;
+  border: 0.4rem solid var(--accent-color);
+  background-color: olive;
 }
 
-.startIcon:hover {
-  box-shadow: 4vh 4vh 4vh grey;
+.startIcon .text {
+  font-size: calc(1.5 * var(--font-base)) !important;
 }
 
-#text {
+.startIcon:hover, .learnIcon:hover, .ourIcon:hover {
+  box-shadow: 2vh 2.5vh 3vh rgba(33, 33, 33, 0.4);
+}
+
+.text {
   height: 100%;
   width: 100%;
-  font-size: 95%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: calc(1.1 * var(--font-base));
 }
 
-.learnIcon {
-  border: .5vh solid slategray;
-  border-radius: 50%;
-  margin:auto;
+.learnIcon, .ourIcon {
+  border: 0.5vh solid slategray;
   height: 20vw;
   width: 20vw;
   background-color: rgb(3, 79, 126);
-  box-shadow: 1vh 1vh 5vh grey;
-}
-
-.learnIcon:hover {
-  box-shadow: 2vh 2vh 2vh grey;
-}
-
-.ourIcon {
-  border-radius: 50%;
-  border: .5vh solid slategray;
-  margin:auto;
-  height: 20vw;
-  width: 20vw;
-  background-color: rgb(3, 79, 126);
-  box-shadow: 1vh 1vh 5vh grey;
-}
-.ourIcon:hover {
-  box-shadow: 2vh 2vh 2vh grey;
 }
 
 /* so the entire circle will act as a link rather than just the words*/
-a.fill-div { 
+a.fill-div {
   height: 100%;
   width: 100%;
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 110%;
   font-family: 'Do Hyeon', sans-serif;
   color: whitesmoke;
+  font-size: 90%;
 }
 
-
-@media only screen and (max-width: 1100px) {
-  #logo {
-    position:relative;  
-    font-size: 10vw;
-    bottom:1vh;  
-  }
-
+@media only screen and (max-width: 800px) {
   .banner {
-    display:flex; 
-    word-wrap: break-word;
-    align-items: flex-end;           
-    backdrop-filter: blur(2rem);
-    background-color: rgba(45, 93, 122, 0.712);
-    font-family: 'Poiret One', cursive;
-    top: 0;
-    width: 100%;
+    backdrop-filter: blur(0.8rem);
     height: 10vh;
-    padding-top:5%; 
   }
-
-  .textBox {  
-    margin-top: 9vh;
+  body {
+    margin-bottom: 12vh;
   }
-
-  .ourIcon {
-    font-size: 80%;
+  .iconBox {
+    transform: translate(0%, 50%);
+    margin-top: -7vh;
   }
-
-  .learnIcon {
-    font-size: 80%;
+  .textBox {
+    padding-top: 12vh;
+    padding-bottom: 0;
+  }
+  .learnIcon, .ourIcon {
+    border: 1vh solid slategray;
   }
   
   .startIcon {
-    font-size: 95%;
+    border: 1vh solid var(--accent-color);
   }
 }
