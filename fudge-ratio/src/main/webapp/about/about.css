@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poiret+One&display=swap');
 :root {
@@ -11,7 +10,12 @@ body {
   margin:0;
   background: var(--background-color);
 }
+
 /* Style for the bar on top and text on top*/
+.mobile {
+  display: none;
+}
+
 .banner {
   z-index: 3;
   word-wrap: break-word;
@@ -42,12 +46,49 @@ body {
   text-align: left;
   text-decoration: none;
 }
+
+#links {
+  display: none;
+  top: 12vh;
+  right: 2vw;
+  position: relative;
+  text-align: right;
+}
+
+/*navigation menu links */
+a {
+  font-family: 'Open Sans', sans-serif;
+  background-color:rgb(45, 92, 122);
+  color: #f2f2f2;
+  padding: 1vh 2vw;
+  text-decoration: none;
+  font-size: 3vw;
+  display: block;
+}
+
+a.menuIcon {
+  background-color: rgba(109, 157, 187, 0);
+  border-radius: 2vw;
+  padding: 1.5vh 3vw;
+  color: #f2f2f2;
+  display: block;
+  position: absolute;
+  right: 3vw;
+  top: 4vh;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 #title {
   margin: 18vh 0vw 3vh 0vw;
   text-align: center;
   font-size: 10vh;
   color: rgb(37, 51, 51); 
 }
+
 h1 {
     font-family: 'Open Sans', sans-serif;
 }
@@ -59,76 +100,62 @@ h1 {
   font-size: 2.5vh;
   color: rgb(37, 51, 51);
 }
+
 /*ending of style for top part of page*/
 
 /*Beginning of style for the expandable grid*/
+  #Gi {
+    background-image: url("imgs/gi_pic.jpg");
+  }
+
+  #Jerry {
+    background-image: url("imgs/jerry_pic.jpg");
+  }
+
+  #Oscar {
+    background-image: url("imgs/oscar_pic.jpg");
+  }
+
+  #Yaa {
+    background-image: url("imgs/yaa_pic.jpg");
+  }
+
  .row {
-  border-radius: 5vw;
-  position: relative;
-  width: 64vw;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
   justify-content: center;
-  background: none;
-  margin: 0 auto;
+  width: 64vw;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;  
+  height: 40vw;
+  grid-gap: 1rem;
  }
+
 .pictureBox {
-  position: relative; 
-  overflow: auto;
-  float: left;
-  width: 32vw;
-  height: 65vh;
-  border-radius: 5vw;
-  background-repeat: no-repeat;
+  border-radius: 2vw;
   background-size: cover; 
-  padding:0;
-  text-align: left;
   cursor: pointer;
-  font-size: 5vw;
-  color: rgb(229, 231, 225);
 }
-#Gi {
-  background-image: url("gi_pic.jpg");
-}
-#Jerry {
-  background-image: url("jerry_pic.jpg");
-}
-#Oscar {
-  background-image: url("oscar_pic.jpg");
-}
-#Yaa {
-  background-image: url("yaa_pic.jpg");
-}
+
 #name{  
+  color: rgb(229, 231, 225);
   z-index: 2; 
-  font-weight: bold;
+  font-weight: bolder;
   font-family: 'Poiret One', sans-serif;
-  font-size: 10vh;
+  font-size: 6vh;
   vertical-align: top;
-  padding-left: 1.5vw;
-  border-radius: 5vw;
-  position: absolute; 
-  width: 25vh;
-  height: 25vh;
-  text-align: left; 
-}
-#triangle{
-  z-index: 1;
-  border-bottom-right-radius: 5vw;
-  position: absolute; 
-  text-align: left; 
-  width: 0;
-  height: 0;
-  clear: none; 
-  border-top: 25vh solid #838f3f7e;
-  border-right: 25vh solid transparent;
+  border-top-left-radius: 2vw;
+  width: 70%;
+  height: 14vh;
+  padding: 1rem;
+  background: linear-gradient(to right bottom, #3553129a 50%, #ffffff00 50%);
 }
 
 .bioContainer {
   display:none;
   padding: 2vh 3vw;
 }
+
 #giBio, #oscarBio , #jerryBio, #yaaBio {
   width: 40vw;
   height: 50vh;
@@ -161,44 +188,5 @@ h1 {
   color: rgb(37, 51, 51); 
 }
 
-@media only screen and (max-width: 1100px) {
-  #logo {
-    position:relative;  
-    font-size: 10vw;
-    bottom:1vh;  
-  }
-  .bioContainer {
-    position: inherit;
-    padding: 2vh 3vw;
-   }
-  .banner {           
-    width: 100%;
-    height: 10vh;
-    padding-top:5%; 
-  }
-  #title {
-    font-size: 7vh;
-  }
-  .textBox {  
-    margin-top: 5vh;
-  }
-  .row {
-    border-radius: 5vw;
-    position: relative;
-    width: 65vw;
-    display: block;
-    overflow:display;
-    justify-content: center;
-    background: none;
-    margin: 0 auto;
-  }
-  .pictureBox {
-    width: 65vw;
-    height: 65vh;
-  }
-  #giBio, #oscarBio , #jerryBio, #yaaBio {
-    position: inherit;
-    width: 60vw;
-    height: 50vh;
-  } 
-}
+
+  
