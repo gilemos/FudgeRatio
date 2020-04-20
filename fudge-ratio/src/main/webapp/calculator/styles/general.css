@@ -46,6 +46,10 @@ button {
   font-size: var(--base);
 }
 
+.active {
+  background-color: var(--green-color);
+}
+
 #submit {
   margin: var(--margin-section) auto;
   font-size: calc(1.15 * var(--base));
