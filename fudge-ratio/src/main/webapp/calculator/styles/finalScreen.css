@@ -1,0 +1,14 @@
+.you {
+  padding-top: 3rem;
+  font-weight: 600;
+  font-size: calc(2 * var(--base));
+}
+
+.others {
+  font-weight: 300;
+  font-size: calc(2 * var(--base));
+}
+
+.finalMessage {
+  padding: 0 15vmin;
+}
