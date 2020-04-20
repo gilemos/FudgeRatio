@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/data")
 public class ActivityServlet extends HttpServlet {
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 

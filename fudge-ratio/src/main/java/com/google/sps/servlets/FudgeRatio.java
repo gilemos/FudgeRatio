@@ -1,21 +1,36 @@
+package com.google.sps.servlets;
 
-import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.PreparedQuery;
-import com.google.appengine.api.datastore.Query;
-import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
 
+import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
+import com.google.gson.Gson;
 
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    
-    }
+@WebServlet("/fudgeRatio")
+public class FudgeRatio extends HttpServlet {
+
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	throws IOException {
+        String body = request.getReader().lines().collect(Collectors.joining());
+        Map data = new Gson().fromJson(body, Map.class);
+
+		final String start = data.get("start").toString();
+		final String end = data.get("end").toString();
+		final double expected = (double) data.get("expected");
+
+		final Gson gson = new Gson();
+		final Map <String,Double> result = new HashMap <String,Double> ();
+		result.put("ratio", calculateRatio(start, end, expected));
+
+		response.setContentType("application/json;");
+		response.getWriter().println(gson.toJson(result));
+	}
 
 
     /**
@@ -26,7 +41,7 @@ public class DataServlet extends HttpServlet {
      * @param end     This is the end time of the task, in the 
      *                same format as the start string.
      */
-    private double calculateRatio(String start, String end, int expected){
+    private double calculateRatio(String start, String end, double expected) {
         //parse the starting time string 
         final int startHr = Integer.parseInt(start.substring(0, 2));
         final int startMin = Integer.parseInt(start.substring(3, 5));
@@ -46,3 +61,4 @@ public class DataServlet extends HttpServlet {
         double ratio = actualDuration / expected; 
         return ratio;
     }
+}
