@@ -27,6 +27,18 @@ class Timer {
     return `${hours}:${minutes}:${seconds}`;
   }
 
+  getHumanText() {
+    const plural = (num, name) => (num ? `${num} ${name}${num > 1 ? "s" : ""}` : ``);
+
+    const [hours, minutes, seconds] = this.getText()
+      .split(":")
+      .map(x => parseInt(x));
+
+    return [plural(hours, "hour"), plural(minutes, "minute"), plural(seconds, "second")]
+      .filter(x => x !== "")
+      .join(" and ");
+  }
+
   updateTimer(elapsed = 0) {
     this.seconds = elapsed;
     return this;

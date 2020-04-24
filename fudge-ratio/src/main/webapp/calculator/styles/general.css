@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Inter:300,400,700&display=swap");
 
 :root {
-  --base: 2vmax;
+  --base: calc(1.2vmax + 0.6rem);
 
   --background-color: rgb(240, 240, 240);
   --font-color: rgb(30, 30, 30);
@@ -46,6 +46,10 @@ button {
   font-size: var(--base);
 }
 
+.active {
+  background-color: var(--green-color);
+}
+
 #submit {
   margin: var(--margin-section) auto;
   font-size: calc(1.15 * var(--base));
@@ -55,10 +59,4 @@ button {
 
 button:disabled {
   opacity: 0.5;
-}
-
-@media screen and (min-width: 1200px) {
-  :root {
-    --base: 1.6vmax;
-  }
 }
