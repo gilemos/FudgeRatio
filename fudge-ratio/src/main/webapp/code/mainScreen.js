@@ -37,9 +37,9 @@ const showMain = () =>
     const text = get("timer-display");
     const startStop = get("start-stop");
     const finish = get("finish");
-    const oneDay = 1000*60*60*24;
+    const oneDay = 1000 * 60 * 60 * 24;
     let id = null;
-    let keepGoing = 1;
+    let keepGoing = true;
     startStop.onclick = () => {
       if (startStop.textContent !== "Stop for a bit") {
         id = setInterval(() => (text.textContent = timer.addSeconds(1).getText()), 1000);
