@@ -39,9 +39,9 @@ const showExpectedTime = () =>
 
     const text = get("timer-display");
     const updateAndShow = time => () => {
-      timer.addSeconds(time)
-      get("range").value = Math.round(timer.seconds / 60)
-      text.textContent = timer.getText()
+      timer.addSeconds(time);
+      get("range").value = Math.round(timer.seconds / 60);
+      text.textContent = timer.getText();
     };
 
     get("add-second").onclick = updateAndShow(1);
