@@ -3,51 +3,19 @@
 }
 
 .mobile {
-    display: block;
+  display: block;
 }
 
-#logo {
-  font-weight: bold;
-  position: absolute;  
-  font-size: 7.5vw;
-  bottom: 1vh;  
+.menuIcon {
+  font-size: calc(1.5 * var(--font-base));
 }
-
-.banner {           
-  width: 100%;
-  height: 9vh;
-  padding-top:5%; 
-}
-
-/*navigation menu */
-#links {
-  display: none;
-  top: 9vh;
-  right: 2vw;
-  position: relative;
-  text-align: right;
-}
-
-a {
-  font-weight: bold;
-  padding: 1vw 1vh;
-  font-size: 4vw;
-}
-
-a.menuIcon {
-  padding: 0vh 1.25vw;
-  font-size: 8vw;
-  right: 2vw;
-  top: 5vh; 
-}
-/*navigation ending */
 
 /*rest of the page */
 #title {
   font-size: 7vh;
 }
 
-.textBox {  
+.textBox {
   margin-top: 5vh;
   margin-bottom: 7vh;
 }
@@ -60,26 +28,37 @@ a.menuIcon {
 }
 
 /*so only the first slide shows */
-#hidden1, #hidden2,  #hidden3 {
-  display: none; 
-} 
+#hidden1,
+#hidden2,
+#hidden3 {
+  display: none;
+}
 .pic {
   width: 80vw;
   height: 80vw;
-  margin: 0 auto; 
-  background-size: cover; 
+  margin: 0 auto;
+  background-size: cover;
   border-radius: 1rem;
 }
 .backButton {
   font-size: 5vw;
-  float:left; 
+  float: left;
   padding: 40vw 4vw;
+  background: transparent;
+  border: 0;
 }
 .forwardButton {
   font-size: 5vw;
-  float: right; 
+  float: right;
   padding: 40vw 4vw;
+  background: transparent;
+  border: 0;
 }
+
+button:focus {
+  outline:none;
+}
+
 #giSlide {
   background-image: url("imgs/gi_pic.jpg");
 }
@@ -92,14 +71,19 @@ a.menuIcon {
 #yaaSlide {
   background-image: url("imgs/yaa_pic.jpg");
 }
-#giBio, #oscarBio , #jerryBio, #yaaBio {
+
+#giBio,
+#oscarBio,
+#jerryBio,
+#yaaBio {
   margin-top: 3vh;
+  margin-bottom: 10vh;
   text-align: center;
   background-color: rgb(168, 78, 50);
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.3em;
-  padding: 0 2.5vw; 
+  padding: 1.4rem;
   height: 70vh;
-  width: 75vw; 
+  border-radius: 1rem;
+  color: rgba(0, 0, 0, 0.7);
 }
-

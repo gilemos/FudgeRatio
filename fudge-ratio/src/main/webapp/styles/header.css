@@ -1,0 +1,19 @@
+header {
+  backdrop-filter: blur(0.6rem);
+  background-color: var(--accent-color);
+  font-family: "Poiret One", cursive;
+  text-align: initial;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  padding-top: 2rem;
+  padding-left: 1.5rem;
+}
+
+header h1 {
+  margin: auto auto;
+  word-wrap: break-word;
+  font-size: calc(2.3 * var(--font-base));
+  color: var(--background-color);
+}
