@@ -1,53 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Open+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poiret+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poiret+One&display=swap");
 
 :root {
   --background-color: rgb(229, 231, 225);
   --accent-color: rgba(45, 93, 122, 0.75);
   --font-color: rgb(37, 51, 51);
-  --base: min(3.5vw, 1.7rem);
-  --font-base: calc(1.2vw + 0.8rem);
+  --font-base: calc(0.8vw + 0.6rem);
 }
 
 html {
-  background: var(--accent-color) !important;
+  background: var(--background-color);
+  font-family: "Open Sans", sans-serif;
 }
 
 html,
 body {
+  text-align: center;
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
-  text-align: center;
 }
 
-#logo {
-  margin: auto auto;
-  padding-top: calc(0.6 * var(--font-base));
-  word-wrap: break-word;
-  font-size: calc(2 * var(--font-base));
-  color: #f2f2f2;
-}
-
-.banner {
+header {
   backdrop-filter: blur(0.6rem);
   background-color: var(--accent-color);
-  font-family: 'Poiret One', cursive;
+  font-family: "Poiret One", cursive;
   text-align: initial;
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 12vh;
-  padding-top: 1rem;
-  padding-left: 1rem;
+  height: 10vh;
+  padding-top: 2rem;
+  padding-left: 1.5rem;
 }
 
-.textBox {
+header h1 {
+  margin: auto auto;
+  word-wrap: break-word;
+  font-size: calc(2 * var(--font-base));
+  color: var(--background-color);
+}
+
+main {
+  min-height: 80vh;
   background: var(--background-color);
   padding: 15vh 4vw 10vh 4vw;
-  font-size: min(1.8rem, calc(1.25 * var(--font-base)));
-  font-family: 'Open Sans', sans-serif;
+  font-size: calc(1.1 * var(--font-base));
   color: var(--font-color);
 }
 
@@ -55,45 +54,50 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 12vh;
 }
 
-.startIcon, .learnIcon, .ourIcon {
+.startIcon,
+.learnIcon,
+.ourIcon {
   border-radius: 50%;
-  margin: auto;
-  box-shadow: 1vh 1vh 4vh grey;
+  margin: 0 2vh;
+  box-shadow: 1vh 1vh 2vh grey;
   transition: box-shadow 0.5s;
 }
 
 .startIcon:hover {
-  box-shadow: 2vh 2.5vh 3vh rgba(33, 33, 33, 0.4);
+  box-shadow: 3vh 3vh 6vh grey;
 }
 
 .startIcon {
-  height: 30vw;
-  width: 30vw;
+  height: 20vw;
+  width: 20vw;
   border: 0.4rem solid var(--accent-color);
   background-color: olive;
 }
 
 .startIcon .text {
-  font-size: calc(1.5 * var(--font-base)) !important;
+  font-size: calc(1.8 * var(--font-base));
 }
 
-.startIcon:hover, .learnIcon:hover, .ourIcon:hover {
+.startIcon:hover,
+.learnIcon:hover,
+.ourIcon:hover {
   box-shadow: 2vh 2.5vh 3vh rgba(33, 33, 33, 0.4);
 }
 
 .text {
   height: 100%;
   width: 100%;
-  font-size: calc(1.1 * var(--font-base));
+  font-size: calc(1.3 * var(--font-base));
 }
 
-.learnIcon, .ourIcon {
+.learnIcon,
+.ourIcon {
   border: 0.5vh solid slategray;
-  height: 20vw;
-  width: 20vw;
+  height: 13vw;
+  width: 13vw;
   background-color: rgb(3, 79, 126);
 }
 
@@ -105,32 +109,59 @@ a.fill-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Do Hyeon', sans-serif;
-  color: whitesmoke;
+  font-family: "Do Hyeon", sans-serif;
+  color: var(--background-color);
   font-size: 90%;
 }
 
 @media only screen and (max-width: 800px) {
-  .banner {
-    backdrop-filter: blur(0.8rem);
-    height: 10vh;
+  :root {
+    --font-base: calc(1.5vw + 0.6rem);
   }
-  body {
-    margin-bottom: 12vh;
+  html {
+    background: var(--accent-color);
+  }
+  header {
+    padding: 0;
+    text-align: center;
+    padding: 3vh 0;
+    height: auto;
   }
   .iconBox {
+    margin-top: 0;
     transform: translate(0%, 50%);
-    margin-top: -7vh;
   }
-  .textBox {
+  main {
+    font-size: calc(1.3 * var(--font-base));
     padding-top: 12vh;
     padding-bottom: 0;
+    min-height: 70vh;
+    display: flex;
+    flex-flow: wrap;
   }
-  .learnIcon, .ourIcon {
+  main * {
+    width: 100%;
+  }
+  .learnIcon,
+  .ourIcon {
     border: 1vh solid slategray;
+    height: 20vw;
+    width: 20vw;
+    margin: auto;
+    box-shadow: none;
   }
-  
+
   .startIcon {
+    height: 30vw;
+    width: 30vw;
     border: 1vh solid var(--accent-color);
+    margin: auto;
+    box-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  :root {
+    --font-base: calc(1vw + 0.6rem);
   }
 }
