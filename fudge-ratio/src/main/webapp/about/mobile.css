@@ -68,6 +68,7 @@ a.menuIcon {
   height: 80vw;
   margin: 0 auto; 
   background-size: cover; 
+  border-radius: 1rem;
 }
 .backButton {
   font-size: 5vw;

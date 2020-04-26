@@ -1,6 +1,6 @@
 const expectedTimeText = `
   <div id="expected-time">
-    <p class="title">Enter expected time:</p>
+    <p class="title" id="text">Enter expected time</p>
     <div class="duration-buttons">
       <button title="Add hour" id="add-hour">∧</button>
       <button title="Add minute" id="add-minute">∧</button>
@@ -31,6 +31,10 @@ const showExpectedTime = () =>
     }
 
     parent.appendChild(createFromText(expectedTimeText));
+
+    const activity = localStorage.getItem(KEYS.ACTIVITY_KEY);
+    get("text").textContent += ` for ${activity}`
+    
     const text = get("timer-display");
     const updateAndShow = time => () => (text.textContent = timer.addSeconds(time).getText());
     get("add-second").onclick = updateAndShow(1);
