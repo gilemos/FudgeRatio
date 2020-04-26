@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="about.css" />
-        <link href="mobile.css" rel="stylesheet" media="screen and (max-width: 1100px)">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" />
+        <meta name="theme-color" content="#5D7F95">
+        
+        <link rel="stylesheet" href="/styles/general.css" />
+        <link rel="stylesheet" href="/styles/header.css" />
+        <link rel="stylesheet" href="/styles/about.css" />
+
+        <link rel="stylesheet" href="desktop.css" media="screen and (min-width: 700px)" />
+        <link href="mobile.css" rel="stylesheet" media="screen and (max-width: 700px)">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Us</title>
     </head>
     <body>
-        <div class="banner">
-            <h1 id="logo">Fudge Ratio Calculator</h1>
+        <header>
+            <h1>Fudge Ratio Calculator</h1>
             <div id="links">
-                <a href="../">Home</a>
-                <a href="/calculator">Calculator</a>
+                <a href="/">Home</a>
+                <a href="/calculator/">Calculator</a>
                 <a href="https://www.stevepavlina.com/blog/2008/05/how-to-make-accurate-time-estimates/">Learn More</a>
             </div>
             <a href="#" class="menuIcon" onclick="expandNav()">
-                <!-- 3-line menu icon (imported from  above)-->
                 <i class="fa fa-bars"></i> 
             </a>
-        </div>
+        </header>
         <h1 id="title">About Us</h1> 
-        <div class="desktop">
+        <section class="desktop">
             <div class = "textBox">
                 <p>This site was built by Team 36 from Google Software Product Sprint Spring 2020!<p>
                 <p>Click our pictures to get to know us!</p>
@@ -83,9 +89,9 @@
                     <div id="name">Yaa</div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- html for mobile version (completely different layout) -->
-        <div class="mobile">
+        <section class="mobile">
             <div class = "textBox">
                 <p>This site was built by Team 36 from Google Software Product Sprint Spring 2020!<p>
                 <p>Use the slideshow to get to know us!</p>
@@ -131,7 +137,7 @@
                     </div>  
                 </div> 
             </div> 
-        </div> 
+        </section> 
     <script src="about.js"></script>
     </body>
 </html>
