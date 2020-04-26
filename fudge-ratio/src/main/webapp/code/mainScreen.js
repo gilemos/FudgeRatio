@@ -37,8 +37,9 @@ const showMain = () =>
     const text = get("timer-display");
     const startStop = get("start-stop");
     const finish = get("finish");
-
+    const oneDay = 1000 * 60 * 60 * 24;
     let id = null;
+    let keepGoing = true;
     startStop.onclick = () => {
       if (startStop.textContent !== "Stop for a bit") {
         id = setInterval(() => (text.textContent = timer.addSeconds(1).getText()), 1000);
@@ -47,7 +48,18 @@ const showMain = () =>
         text.style.fontWeight = 700;
         finish.disabled = false;
         if (!timerStorage) localStorage.setItem(KEYS.TIME_KEY, Date.now());
-      } else {
+        if (localStorage.getItem(KEYS.TIME_KEY)){
+          let elapsed = Date.now() - localStorage.getItem(KEYS.TIME_KEY);
+          if (elapsed > oneDay) {
+              keepGoing = confirm("You have been gone for a while, would you like to continue?");
+          }
+          if (!keepGoing) {
+            localStorage.clear();
+            location.reload();
+          }
+        }
+      }
+        else {
         startStop.textContent = "Continue";
         text.style.fontWeight = 400;
         startStop.style.backgroundColor = "var(--green-color)";
