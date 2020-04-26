@@ -12,3 +12,7 @@
 .finalMessage {
   padding: 0 15vmin;
 }
+
+.finalMessage button {
+  margin: 1rem;
+}
