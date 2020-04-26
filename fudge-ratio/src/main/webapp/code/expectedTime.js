@@ -12,6 +12,8 @@ const expectedTimeText = `
       <button title="Minus minute" id="minus-minute">∨</button>
       <button title="Minus second" id="minus-second">∨</button>
     </div>
+
+    <input type="range" value="0" id="range" name="points" min="0" max="240">
     <button disabled id="submit">Add Duration</button>
   </div>
   `;
@@ -33,10 +35,15 @@ const showExpectedTime = () =>
     parent.appendChild(createFromText(expectedTimeText));
 
     const activity = localStorage.getItem(KEYS.ACTIVITY_KEY);
-    get("text").textContent += ` for ${activity}`
-    
+    get("text").textContent += ` for ${activity}`;
+
     const text = get("timer-display");
-    const updateAndShow = time => () => (text.textContent = timer.addSeconds(time).getText());
+    const updateAndShow = time => () => {
+      timer.addSeconds(time)
+      get("range").value = Math.round(timer.seconds / 60)
+      text.textContent = timer.getText()
+    };
+
     get("add-second").onclick = updateAndShow(1);
     get("minus-second").onclick = updateAndShow(-1);
 
@@ -45,6 +52,11 @@ const showExpectedTime = () =>
 
     get("add-hour").onclick = updateAndShow(3600);
     get("minus-hour").onclick = updateAndShow(-3600);
+
+    get("range").oninput = e => {
+      timer.seconds = parseInt(e.target.value) * 60;
+      text.textContent = timer.getText();
+    };
 
     const submitButton = get("submit");
     text.addEventListener(

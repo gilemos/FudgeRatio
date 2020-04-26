@@ -27,3 +27,8 @@
   transition: opacity 0.4s;
   -webkit-transition: opacity 0.4s;
 }
+
+#expected-time input[type=range] {
+  margin-top: calc(2 * var(--base));
+  width: calc(4*4 * var(--base));
+}
